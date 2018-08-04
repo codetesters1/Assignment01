@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner IN;
-	private static library LIB;
+	private static Scanner input; //Changed the variable name from input to input
+	private static library lib;//Changed the variable name from lib to lib
 	private static String MENU;
-	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
+	private static Calendar CAL; 
+	private static SimpleDateFormat SDF; 
 	
 	
 	private static String Get_menu() {
@@ -39,16 +39,16 @@ public class Main {
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
-			LIB = library.INSTANCE();
+			input = new Scanner(System.in);//Changed the variable name from input to input
+			lib = library.INSTANCE();//Changed the variable name from lib to lib
 			CAL = Calendar.getInstance();
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 	
-			for (member m : LIB.Members()) {
+			for (member m : lib.Members()) {//Changed the variable name from lib to lib
 				output(m);
 			}
 			output(" ");
-			for (book b : LIB.Books()) {
+			for (book b : lib.Books()) {//Changed the variable name from lib to lib
 				output(b);
 			}
 						
@@ -120,14 +120,15 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void payFine() {
+	
+	private static void payFine() {
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
 
 	private static void listCurrentLoans() {
 		output("");
-		for (loan loan : LIB.CurrentLoans()) {
+		for (loan loan : lib.CurrentLoans()) {
 			output(loan + "\n");
 		}		
 	}
@@ -136,7 +137,7 @@ public class Main {
 
 	private static void listBooks() {
 		output("");
-		for (book book : LIB.Books()) {
+		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
 		}		
 	}
@@ -145,7 +146,7 @@ public class Main {
 
 	private static void listMembers() {
 		output("");
-		for (member member : LIB.Members()) {
+		for (member member : lib.Members()) {//Changed the variable name from lib to lib
 			output(member + "\n");
 		}		
 	}
@@ -171,7 +172,7 @@ public class Main {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
-			LIB.checkCurrentLoans();
+			lib.checkCurrentLoans();//Changed the variable name from lib to lib
 			output(SDF.format(CAL.Date()));
 			
 		} catch (NumberFormatException e) {
@@ -185,7 +186,7 @@ public class Main {
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
 		String callNo = input("Enter call number: ");
-		book book = LIB.Add_book(author, title, callNo);
+		book book = lib.Add_book(author, title, callNo);//Changed the variable name from lib to lib
 		output("\n" + book + "\n");
 		
 	}
@@ -197,7 +198,7 @@ public class Main {
 			String firstName  = input("Enter first name: ");
 			String email = input("Enter email: ");
 			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue();
-			member member = LIB.Add_mem(lastName, firstName, email, phoneNo);
+			member member = lib.Add_mem(lastName, firstName, email, phoneNo);//Changed the variable name from lib to lib
 			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
@@ -209,7 +210,7 @@ public class Main {
 
 	private static String input(String prompt) {
 		System.out.print(prompt);
-		return IN.nextLine();
+		return input.nextLine();//Changed the variable name from input to input
 	}
 	
 	
