@@ -5,7 +5,7 @@ public class FixBookUI {
 
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
-	private FixBookControl control;
+	private FixBookControl control; //comment
 	private Scanner input;
 	private UI_STATE state;
 
