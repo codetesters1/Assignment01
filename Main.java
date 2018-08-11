@@ -7,7 +7,7 @@ public class Main {
 	private static Scanner input; //Changed the variable name from Input to input
 	private static library lib;//Changed the variable name from Lib to lib
 	private static String MENU;
-	private static Calendar CAL; 
+	private static Calendar calendar; //changed the variable name CAL to calendar
 	private static SimpleDateFormat SDF; 
 	
 	
@@ -41,7 +41,7 @@ public class Main {
 		try {			
 			input = new Scanner(System.in);//Changed the variable name from input to input
 			lib = library.INSTANCE();//Changed the variable name from lib to lib
-			CAL = Calendar.getInstance();
+			calendar = Calendar.getInstance(); //changed the variable name CAL to calendar
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 	
 			for (member m : lib.Members()) {//Changed the variable name from lib to lib
@@ -58,7 +58,7 @@ public class Main {
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.Date()));
+				output("\n" + SDF.format(calendar.Date()));//changed the variable name CAL to calendar
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
@@ -171,9 +171,9 @@ public class Main {
 	private static void incrementDate() {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
+			calendar.incrementDate(days);//changed the variable name CAL to calendar
 			lib.checkCurrentLoans();//Changed the variable name from lib to lib
-			output(SDF.format(CAL.Date()));
+			output(SDF.format(calendar.Date()));//changed the variable name CAL to calendar
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");
