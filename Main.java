@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner input; //Changed the variable name from input to input
-	private static library lib;//Changed the variable name from lib to lib
+	private static Scanner input; //Changed the variable name from Input to input
+	private static library lib;//Changed the variable name from Lib to lib
 	private static String MENU;
 	private static Calendar CAL; 
 	private static SimpleDateFormat SDF; 
 	
 	
 	private static String Get_menu() {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder strBuilder = new StringBuilder(); //changed variable 'sb' to 'strBuilder'
 		
-		sb.append("\nLibrary Main Menu\n\n")
+		strBuilder.append("\nLibrary Main Menu\n\n") //changed variable 'sb' to 'strBuilder'
 		  .append("  M  : add member\n")
 		  .append("  LM : list members\n")
 		  .append("\n")
@@ -33,7 +33,7 @@ public class Main {
 		  .append("\n")
 		  .append("Choice : ");
 		  
-		return sb.toString();
+		return strBuilder.toString(); //changed variable 'sb' to 'strBuilder'
 	}
 
 
