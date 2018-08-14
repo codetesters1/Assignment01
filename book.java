@@ -1,44 +1,46 @@
+package javaapplication4;
+
 import java.io.Serializable;
 \\\\\\\\\\\\\\Testing
 
 
 @SuppressWarnings("serial")
-public class book implements Serializable {
+public class Book implements Serializable {   //book has changed to Book
 	
-	private String T;
-	private String A;
-	private String C;
-	private int ID;
+	private String Title;   // changed to Tilte
+	private String Author;  // changed to Author
+	private String CallNo;  // changed to CallNo
+	private int BookID;     // changed to BookID
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
 	
 	
-	public book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
+	public Book(String author, String title, String callNo, int id) {  //book has changed to Book
+		this.Author = author;
+		this.Title= title;
+		this.CallNo = callNo;
+		this.BookID = id;
 		this.state = STATE.AVAILABLE;
 	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(ID).append("\n")
-		  .append("  Title:  ").append(T).append("\n")
-		  .append("  Author: ").append(A).append("\n")
-		  .append("  CallNo: ").append(C).append("\n")
+		sb.append("Book: ").append(BookID).append("\n")
+		  .append("  Title:  ").append(Title).append("\n")
+		  .append("  Author: ").append(Author).append("\n")
+		  .append("  CallNo: ").append(CallNo).append("\n")
 		  .append("  State:  ").append(state);
 		
 		return sb.toString();
 	}
 
 	public Integer ID() {
-		return ID;
+		return BookID;
 	}
 
 	public String Title() {
-		return T;
+		return Title;
 	}
 
 
