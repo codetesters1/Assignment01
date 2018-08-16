@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class FixBookUI {
+public class FixBookUserInterface { //Class, variable, and method names should not use abbreviations, except for common acronyms
 
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
@@ -10,7 +10,7 @@ public class FixBookUI {
 	private UI_STATE state;
 
 	
-	public FixBookUI(FixBookControl control) {
+	public FixBookUserInterface(FixBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;
@@ -31,13 +31,13 @@ public class FixBookUI {
 			switch (state) {
 			
 			case READY:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): "); //Variable name should be meaningful and should not be abbreviations
+				if (bookString.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookStr).intValue();
+						int bookId = Integer.valueOf(bookString).intValue();
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
