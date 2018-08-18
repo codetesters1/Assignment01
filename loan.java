@@ -21,10 +21,13 @@ public class loan implements Serializable {// class name: "Loan" not "loan" must
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
-		this.ID = loanId;
-		this.B = book;
-		this.M = member;
-		this.D = dueDate;
+	//	public Loan(int loanId, Book book, Member member, Date dueDate) {
+	// constructor is the same class name - starts with capital letter 
+	// each argument of a class type - the type is also must start with capital letter camelBack
+		this.ID = loanId;//this.myId    =loanID;    /* Variable name must be meaningful - camelBack style*/
+		this.B = book;   //this.myBook  =book;		/* Variable name must be meaningful - camelBack style*/
+		this.M = member; //this.myMember=member;	/* Variable name must be meaningful - camelBack style*/
+		this.D = dueDate;//this.myDueDate=dueDate;	/* Variable name must be meaningful - camelBack style*/
 		this.state = LOAN_STATE.CURRENT;
 	}
 
