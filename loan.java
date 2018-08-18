@@ -8,10 +8,15 @@ public class loan implements Serializable {// class name: "Loan" not "loan" must
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
-	private int ID;
+	private int ID;// variable name : "myId;" not "ID;" - all uppercase is used for constants only
 	private book B;
+	// use meaningful name ,camelBack so "Book myBook;" not "book B;"
+	//class Name "Book" not "book" starts with capital letter - The file book.java must be updated to reflect this fact 
 	private member M;
-	private Date D;
+	// use meaningful name ,camelBack so "Member myMember;" not "member M;"
+	//class Name "Member" not "member" starts with capital letter - The file member.java must be updated to reflect this fact
+	private Date D;  
+	// use meaningful name ,camelBack so "Date myDueDate;" not "Date D;"
 	private LOAN_STATE state;
 
 	
