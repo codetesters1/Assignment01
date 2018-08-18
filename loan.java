@@ -3,7 +3,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class loan implements Serializable {
+public class loan implements Serializable {// class name: "Loan" not "loan" must start with capital letter
+	
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
