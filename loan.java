@@ -46,13 +46,18 @@ public class loan implements Serializable {// class name: "Loan" not "loan" must
 	}
 
 	
+	public boolean isOverDue() {
+		return state == LOAN_STATE.OVER_DUE;
+	}
+
+	
 	public Integer getId() {
-		return ID;
+		return ID;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
 	}
 
 
 	public Date getDueDate() {
-		return D;
+		return D;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
 	}
 	
 	
