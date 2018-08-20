@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner IN;
-	private static library LIB;
+	private static Scanner input; //Changed the variable name from Input to input
+	private static library lib;//Changed the variable name from Lib to lib
 	private static String MENU;
-	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
+	private static Calendar calendar; //changed the variable name CAL to calendar
+	private static SimpleDateFormat SDF; 
 	
 	
 	private static String Get_menu() {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder strBuilder = new StringBuilder(); //changed variable 'sb' to 'strBuilder'
 		
-		sb.append("\nLibrary Main Menu\n\n")
+		strBuilder.append("\nLibrary Main Menu\n\n") //changed variable 'sb' to 'strBuilder'
 		  .append("  M  : add member\n")
 		  .append("  LM : list members\n")
 		  .append("\n")
@@ -33,22 +33,22 @@ public class Main {
 		  .append("\n")
 		  .append("Choice : ");
 		  
-		return sb.toString();
+		return strBuilder.toString(); //changed variable 'sb' to 'strBuilder'
 	}
 
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
-			LIB = library.INSTANCE();
-			CAL = Calendar.getInstance();
+			input = new Scanner(System.in);//Changed the variable name from input to input
+			lib = library.INSTANCE();//Changed the variable name from lib to lib
+			calendar = Calendar.getInstance(); //changed the variable name CAL to calendar
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 	
-			for (member m : LIB.Members()) {
+			for (member m : lib.Members()) {//Changed the variable name from lib to lib
 				output(m);
 			}
 			output(" ");
-			for (book b : LIB.Books()) {
+			for (book b : lib.Books()) {//Changed the variable name from lib to lib
 				output(b);
 			}
 						
@@ -58,7 +58,7 @@ public class Main {
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.Date()));
+				output("\n" + SDF.format(calendar.Date()));//changed the variable name CAL to calendar
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
@@ -120,14 +120,15 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void payFine() {
+	
+	private static void payFine() {
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
 
 	private static void listCurrentLoans() {
 		output("");
-		for (loan loan : LIB.CurrentLoans()) {
+		for (loan loan : lib.CurrentLoans()) {
 			output(loan + "\n");
 		}		
 	}
@@ -136,7 +137,7 @@ public class Main {
 
 	private static void listBooks() {
 		output("");
-		for (book book : LIB.Books()) {
+		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
 		}		
 	}
@@ -145,7 +146,7 @@ public class Main {
 
 	private static void listMembers() {
 		output("");
-		for (member member : LIB.Members()) {
+		for (member member : lib.Members()) {//Changed the variable name from lib to lib
 			output(member + "\n");
 		}		
 	}
@@ -170,9 +171,9 @@ public class Main {
 	private static void incrementDate() {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
-			LIB.checkCurrentLoans();
-			output(SDF.format(CAL.Date()));
+			calendar.incrementDate(days);//changed the variable name CAL to calendar
+			lib.checkCurrentLoans();//Changed the variable name from lib to lib
+			output(SDF.format(calendar.Date()));//changed the variable name CAL to calendar
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");
@@ -185,7 +186,7 @@ public class Main {
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
 		String callNo = input("Enter call number: ");
-		book book = LIB.Add_book(author, title, callNo);
+		book book = lib.Add_book(author, title, callNo);//Changed the variable name from lib to lib
 		output("\n" + book + "\n");
 		
 	}
@@ -197,7 +198,7 @@ public class Main {
 			String firstName  = input("Enter first name: ");
 			String email = input("Enter email: ");
 			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue();
-			member member = LIB.Add_mem(lastName, firstName, email, phoneNo);
+			member member = lib.Add_mem(lastName, firstName, email, phoneNo);//Changed the variable name from lib to lib
 			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
@@ -209,7 +210,7 @@ public class Main {
 
 	private static String input(String prompt) {
 		System.out.print(prompt);
-		return IN.nextLine();
+		return input.nextLine();//Changed the variable name from input to input
 	}
 	
 	
