@@ -54,12 +54,12 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 
 	
 	public Integer getId() {
-		return ID;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
+		return this.myId;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
 	}
 
 
 	public Date getDueDate() {
-		return D;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
+		return this.myDueDate;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
 	}
 	
 	
