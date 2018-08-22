@@ -5,18 +5,18 @@ public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library L;
-	private member M;
+	private Library library; // version 1.00 the (object reference variable)first letter of the library replaced capital "Library" and varible name L replaced to library.
+	private Member member;   // version 1.01 the first letter of the member replaced capital "Member" and varible name M replaced to member.
 	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
 	private CONTROL_STATE state;
 	
 	private List<book> PENDING;
 	private List<loan> COMPLETED;
-	private book B;
+	private book book; // version 1.02 variable name B replaced to Book
 	
 	
 	public BorrowBookControl() {
-		this.L = L.INSTANCE();
+		this.library = library.INSTANCE(); // version 1.03 varible name L replaced library as a parameter
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
@@ -31,16 +31,16 @@ public class BorrowBookControl {
 	}
 
 		
-	public void Swiped(int memberId) {
+	public void Swiped(int memberId) {  // version 1.04 the method name Swiped replaced to swiped due to lowerCamelCase 
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = L.getMember(memberId);
+		M = library.getMember(memberId); //version 1.05 variable name L replaced to library  as a parameter
 		if (M == null) {
 			ui.display("Invalid memberId");
 			return;
 		}
-		if (L.memberCanBorrow(M)) {
+		if (library.memberCanBorrow(M)) {  //version 1.06 variable name L replaced to library  as a parameter
 			PENDING = new ArrayList<>();
 			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
 			state = CONTROL_STATE.SCANNING; }
@@ -50,23 +50,23 @@ public class BorrowBookControl {
 			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
 	
 	
-	public void Scanned(int bookId) {
-		B = null;
+	public void Scanned(int bookId) { // version 1.07 the method name first letter of the Scanned replaced to scanned due to lowerCamelCase 
+		book= null; // // version 1.08 variable name B replaced to Book
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		B = L.Book(bookId);
-		if (B == null) {
+		book = library.Book(bookId); // version 1.09 variable name L replaced to library  as a parameter
+		if (book== null) {  // version 1.10 changed variable used as a parameter
 			ui.display("Invalid bookId");
 			return;
 		}
-		if (!B.Available()) {
+		if (!book.Available()) {  // version 1.10 above replaced variable used as a parameter
 			ui.display("Book cannot be borrowed");
 			return;
 		}
-		PENDING.add(B);
-		for (book B : PENDING) {
-			ui.display(B.toString());
+		PENDING.add(book);  // version 1.11 above replaced variable used as a parameter
+		for (book book : PENDING) {  // version 1.12 above replaced variable used as a parameter
+			ui.display(book.toString()); // version 1.13 above replaced variable used as a parameter
 		}
 		if (L.loansRemainingForMember(M) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
@@ -75,13 +75,13 @@ public class BorrowBookControl {
 	}
 	
 	
-	public void Complete() {
+	public void complete() { // version 1.14 method name first letter of Complete replaced to complete due to lowerCamelCase
 		if (PENDING.size() == 0) {
 			cancel();
 		}
 		else {
 			ui.display("\nFinal Borrowing List");
-			for (book b : PENDING) {
+			for (book book : PENDING) { // version 1.15 above replaced variable used as a parameter
 				ui.display(b.toString());
 			}
 			COMPLETED = new ArrayList<loan>();
