@@ -19,23 +19,23 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 	// use meaningful name ,camelBack so "Date myDueDate;" not "Date D;"
 	private LOAN_STATE state;
 
-
 	
-	public loan(int loanId, book book, member member, Date dueDate) {
-	//	public Loan(int loanId, Book book, Member member, Date dueDate) {
+	public Loan(int loanId, Book book, Member member, Date dueDate) {
+	
 	// constructor is the same class name - starts with capital letter 
 	// each argument of a class type - the type is also must start with capital letter camelBack
-		this.ID = loanId;//this.myId    =loanID;    /* Variable name must be meaningful - camelBack style*/
-		this.B = book;   //this.myBook  =book;		/* Variable name must be meaningful - camelBack style*/
-		this.M = member; //this.myMember=member;	/* Variable name must be meaningful - camelBack style*/
-		this.D = dueDate;//this.myDueDate=dueDate;	/* Variable name must be meaningful - camelBack style*/
+        
+		this.myId    =loanID;// Variable name must be meaningful - camelBack style
+		this.myBook  =book;   // Variable name must be meaningful - camelBack style
+		this.myMember=member; //Variable name must be meaningful - camelBack style
+		this.myDueDate=dueDate;//Variable name must be meaningful - camelBack style
 		this.state = LOAN_STATE.CURRENT;
 	}
 
 	
 	public void checkOverDue() {
 		if (state == LOAN_STATE.CURRENT &&
-			Calendar.getInstance().Date().after(D)) {
+			Calendar.getInstance().Date().after(myDueDate))) {
 	//"Calendar.getInstance().Date().after(myDueDate)" rather "Calendar.getInstance().Date().after(D)"
 			this.state = LOAN_STATE.OVER_DUE;			
 		}
@@ -53,12 +53,12 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 
 	
 	public Integer getId() {
-		return ID;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
+		return this.myId;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
 	}
 
 
 	public Date getDueDate() {
-		return D;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
+		return this.myDueDate;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
 	}
 	
 	
