@@ -19,7 +19,6 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 	// use meaningful name ,camelBack so "Date myDueDate;" not "Date D;"
 	private LOAN_STATE state;
 
-
 	
 	public Loan(int loanId, Book book, Member member, Date dueDate) {
 	
@@ -33,6 +32,7 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 		this.state = LOAN_STATE.CURRENT;
 	}
 
+	
 	public void checkOverDue() {
 		if (state == LOAN_STATE.CURRENT &&
 			Calendar.getInstance().Date().after(myDueDate))) {
@@ -40,7 +40,6 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 			this.state = LOAN_STATE.OVER_DUE;			
 		}
 	}
-
 
 	
 	public boolean isOverDue() {
