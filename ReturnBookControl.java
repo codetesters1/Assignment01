@@ -10,6 +10,7 @@ public class ReturnBookControl {
 	private Loan currentLoan;
 	// "Loan currentLoan" not "loan currentLoan" as the class type must start with capital letter
 	//class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
+	
 
 	public ReturnBookControl() { 
 	/*returnBookControl not "ReturnBookControl" as method starts with small letter 
@@ -20,7 +21,6 @@ public class ReturnBookControl {
 		//it's verb in useCamelBack style
 		state = CONTROL_STATE.INITIALISED;
 	}
-	
 	
 	
 	public void setUI(ReturnBookUI ui) {
