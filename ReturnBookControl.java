@@ -11,10 +11,16 @@ public class ReturnBookControl {
 	// "Loan currentLoan" not "loan currentLoan" as the class type must start with capital letter
 	//class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
 
-	public ReturnBookControl() {
-		this.library = library.INSTANCE();
+	public ReturnBookControl() { 
+	/*returnBookControl not "ReturnBookControl" as method starts with small letter 
+	- it is verb and in useCamelBack style*/ 
+		this.library = library.getInstance();
+		//"library.getInstance()" not "library.INSTANCE()" 
+		//as the method that returns their sole instance is "getInstanse" 
+		//it's verb in useCamelBack style
 		state = CONTROL_STATE.INITIALISED;
 	}
+	
 	
 	
 	public void setUI(ReturnBookUI ui) {
