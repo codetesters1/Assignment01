@@ -4,9 +4,12 @@ public class ReturnBookControl {
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE state;
 	
-	private library library;
-	private loan currentLoan;
-	
+	private Library Library;
+	// "Library library" not "library library" as the class type must start with capital letter
+	//class Name "Library" not "library" starts with capital letter - The file library.java must be updated to reflect this fact
+	private Loan currentLoan;
+	// "Loan currentLoan" not "loan currentLoan" as the class type must start with capital letter
+	//class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
 
 	public ReturnBookControl() {
 		this.library = library.INSTANCE();
