@@ -37,13 +37,18 @@ public class ReturnBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		}	
-		book currentBook = library.Book(bookId);
-		
+		Book currentBook = library.Book(bookId);
+		//"Book currentBook" rather than "book currentBook"
+		//as the class name must starts with small letter and be verb in useCamelBack style
+		//book.java must be updated to reflect this naming convention
 		if (currentBook == null) {
 			ui.display("Invalid Book Id");
 			return;
 		}
-		if (!currentBook.On_loan()) {
+		if (!currentBook.isLoaned())) {
+			/* "currentBook.isLoaned()" not "currentBook.On_loan()"
+			the method name must be verb and useCamelBack style 
+			*/
 			ui.display("Book has not been borrowed");
 			return;
 		}		
