@@ -36,32 +36,32 @@ public class Book implements Serializable {   // version_1.00 changed class name
 		return sb.toString();
 	}
 
-	public Integer ID() {
-		return BookID;
+	public Integer getId() {   // version 1.13 the method name ID replaced to getId
+		return BookID;     // version_1.14 ID replaced to bookId
 	}
 
-	public String Title() {
-		return Title;
+	public String getTitle() { // method name Title replaced to gETtITLE 
+		return title;       // version_1.15 T replaced to tilte
 	}
 
 
 	
-	public boolean Available() {
+	public boolean isAvailable() { // version 1.16 method name Availbale replaced to isAvailable 
 		return state == STATE.AVAILABLE;
 	}
 
 	
-	public boolean On_loan() {
+	public boolean isOn_loan() {  //version 1.17 method name On_loan replaced to isOnLoan
 		return state == STATE.ON_LOAN;
 	}
 
 	
-	public boolean Damaged() {
+	public boolean isDamaged() { //version 1.18 method name Damaged replaced to isDamaged
 		return state == STATE.DAMAGED;
 	}
 
 	
-	public void Borrow() {
+	public void borrowBook() {    // version 1.19 method name replaced to borrowBook
 		if (state.equals(STATE.AVAILABLE)) {
 			state = STATE.ON_LOAN;
 		}
@@ -72,7 +72,7 @@ public class Book implements Serializable {   // version_1.00 changed class name
 	}
 
 
-	public void Return(boolean DAMAGED) {
+	public void returnBook(boolean DAMAGED) {   // version 1.20 method name replaced to returnBook 
 		if (state.equals(STATE.ON_LOAN)) {
 			if (DAMAGED) {
 				state = STATE.DAMAGED;
@@ -87,7 +87,7 @@ public class Book implements Serializable {   // version_1.00 changed class name
 	}
 
 	
-	public void Repair() {
+	public void repairBook() {      // version 1.21 method name Repair replaced to repairBook
 		if (state.equals(STATE.DAMAGED)) {
 			state = STATE.AVAILABLE;
 		}
