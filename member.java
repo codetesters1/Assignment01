@@ -7,38 +7,38 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class member implements Serializable {
 
-	private String lastName; //version 1.0 changed variable 'LN' to 'lastName'
-	private String firstName; //version 1.0 changed variable 'FN' to 'firstName'
-	private String eMail; //version 1.0 changed variable 'EM' to 'eMail'
-	private int phoneNo; //version 1.0 changed variable 'PN' to 'phoneNo'
-	private int idNo; //version 1.0 changed variable 'ID' to 'idNo'
-	private double fineAmount; //version 1.0 changed variable 'FINES' to 'fineAmount'
+	private String lastName; //version 1.0 variable name : "LastName;" not "LN;" - all uppercase is used for constants onlye' 
+	private String firstName; //version 1.0 variable name : "firstName;" not "FN;" - all uppercase is used for constants only
+	private String eMail; //version 1.0 variable name : "eMail;" not "EM;" - all uppercase is used for constants only
+	private int phoneNo; //version 1.0 variable name : "phoneNo;" not "PN;" - all uppercase is used for constants only
+	private int idNo; //version 1.0 variable name : "idNo;" not "ID;" - all uppercase is used for constants only
+	private double fineAmount; //version 1.0 variable name : "fineAmount;" not "FINES;" - all uppercase is used for constants only
 	
-	private Map<Integer, loan> loanNo;
+	private Map<Integer, loan> loanNo; //version 1.0 variable name : "fineAmount;" not "FINES;" - all uppercase is used for constants only
 
 	
 	public member(String lastName, String firstName, String eMail, int phoneNo, int idNo) { // version 1.0 changed variables acoordingly, email-eMail, id-idNo
-		this.lastName = lastName;//changed variable name
-		this.firstName = firstName;//changed variable name
-		this.eMail = eMail;//changed variable and parameter name
-		this.phoneNo = phoneNo;//changed variable name
-		this.idNo = idNo;//changed variable and parameter name
+		this.lastName = lastName;//version 1.0 Variable name must be meaningful - camelBack style
+		this.firstName = firstName;//version 1.0 Variable name must be meaningful - camelBack style
+		this.eMail = eMail;//version 1.0 Variable name must be meaningful - camelBack style
+		this.phoneNo = phoneNo;//version 1.0 Variable name must be meaningful - camelBack style
+		this.idNo = idNo;//version 1.0 Variable name must be meaningful - camelBack style
 		
-		this.loanNo = new HashMap<>();
+		this.loanNo = new HashMap<>();// Variable name must be meaningful - camelBack style
 	}
 
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Member:  ").append(ID).append("\n")
-		  .append("  Name:  ").append(LN).append(", ").append(FN).append("\n")
-		  .append("  Email: ").append(EM).append("\n")
-		  .append("  Phone: ").append(PN)
+		sb.append("Member:  ").append(ID).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
+		  .append("  Name:  ").append(LN).append(", ").append(FN).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
+		  .append("  Email: ").append(EM).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
+		  .append("  Phone: ").append(PN) //version 2.0 Variable name must be meaningful - camelBack style
 		  .append("\n")
-		  .append(String.format("  Fines Owed :  $%.2f", FINES))
+		  .append(String.format("  Fines Owed :  $%.2f", FINES)) //version 2.0 Variable name must be meaningful - camelBack style
 		  .append("\n");
 		
-		for (loan loan : LNS.values()) {
+		for (loan loan : LNS.values()) { //version 2.0 Variable name must be meaningful - camelBack style
 			sb.append(loan).append("\n");
 		}		  
 		return sb.toString();
@@ -46,28 +46,28 @@ public class member implements Serializable {
 
 	
 	public int getId() {
-		return idNo; //changed variable and parameter name
+		return idNo; //version 1.0 Variable name must be meaningful - camelBack style
 	}
 
 	
 	public List<loan> getLoans() {
-		return new ArrayList<loan>(loanNo.values());//version 1.0 changed LNS to loanNo
+		return new ArrayList<loan>(loanNo.values());//version 1.0 Variable name must be meaningful - camelBack style
 	}
 
 	
 	public int getNumberOfCurrentLoans() {
-		return loanNo.size();//version 1.0 changed LNS to loanNo
+		return loanNo.size();//version 1.0 Variable name must be meaningful - camelBack style
 	}
 
 	
 	public double getFinesOwed() {
-		return fineAmount; //version 1.0 changed parameter 'FINES' to 'fineAmount'
+		return fineAmount; //version 1.0 Variable name must be meaningful - camelBack style
 	}
 
 	
 	public void takeOutLoan(loan loan) {
-		if (!loanNo.containsKey(loan.getId())) { //version 1.0 changed LNS to loanNo
-			loanNo.put(loan.getId(), loan); //version 1.0 changed LNS to loanNo
+		if (!loanNo.containsKey(loan.getId())) { //version 1.0 Variable name must be meaningful - camelBack style
+			loanNo.put(loan.getId(), loan); //version 1.0 Variable name must be meaningful - camelBack style
 		}
 		else {
 			throw new RuntimeException("Duplicate loan added to member");
@@ -76,17 +76,17 @@ public class member implements Serializable {
 
 	
 	public String getLastName() {
-		return lastName; //changed parameter name LN to lastName;
+		return lastName; //version 1.0 Variable name must be meaningful - camelBack style
 	}
 
 	
 	public String getFirstName() {
-		return firstName; //changed parameter name FN to firstName;
+		return firstName; //version 1.0 Variable name must be meaningful - camelBack style
 	}
 
 
 	public void addFine(double fine) {
-		fineAmount += fine; //version 1.0 changed variable 'FINES' to 'fineAmount'
+		fineAmount += fine; //version 1.0 Variable name must be meaningful - camelBack style
 	}
 	
 	public double payFine(double amount) {
@@ -94,12 +94,12 @@ public class member implements Serializable {
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
 		double change = 0;
-		if (amount > fineAmount) { //version 1.0 changed variable 'FINES' to 'fineAmount'
-			change = amount - fineAmount; //version 1.0 changed variable 'FINES' to 'fineAmount'
-			fineAmount = 0; //version 1.0 changed variable 'FINES' to 'fineAmount'
+		if (amount > fineAmount) { //version 1.0 Variable name must be meaningful - camelBack style
+			change = amount - fineAmount; //version 1.0 Variable name must be meaningful - camelBack style
+			fineAmount = 0; //version 1.0 Variable name must be meaningful - camelBack style
 		}
 		else {
-			fineAmount -= amount; //version 1.0 changed variable 'FINES' to 'fineAmount'
+			fineAmount -= amount; //version 1.0 Variable name must be meaningful - camelBack style
 		}
 		return change;
 	}
