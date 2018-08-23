@@ -7,24 +7,24 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class member implements Serializable {
 
-	private String LN;
-	private String FN;
-	private String EM;
-	private int PN;
-	private int ID;
-	private double FINES;
+	private String lastName; //version 1.0 changed variable 'LN' to 'lastName'
+	private String firstName; //version 1.0 changed variable 'FN' to 'firstName'
+	private String eMail; //version 1.0 changed variable 'EM' to 'eMail'
+	private int phoneNo; //version 1.0 changed variable 'PN' to 'phoneNo'
+	private int idNo; //version 1.0 changed variable 'ID' to 'idNo'
+	private double fineAmount; //version 1.0 changed variable 'FINES' to 'fineAmount'
 	
-	private Map<Integer, loan> LNS;
+	private Map<Integer, loan> loanNo;
 
 	
-	public member(String lastName, String firstName, String email, int phoneNo, int id) {
-		this.LN = lastName;
-		this.FN = firstName;
-		this.EM = email;
-		this.PN = phoneNo;
-		this.ID = id;
+	public member(String lastName, String firstName, String eMail, int phoneNo, int idNo) { // version 1.0 changed variables acoordingly, email-eMail, id-idNo
+		this.lastName = lastName;//changed variable name
+		this.firstName = firstName;//changed variable name
+		this.eMail = eMail;//changed variable and parameter name
+		this.phoneNo = phoneNo;//changed variable name
+		this.idNo = idNo;//changed variable and parameter name
 		
-		this.LNS = new HashMap<>();
+		this.loanNo = new HashMap<>();
 	}
 
 	
@@ -46,28 +46,28 @@ public class member implements Serializable {
 
 	
 	public int getId() {
-		return ID;
+		return idNo; //changed variable and parameter name
 	}
 
 	
 	public List<loan> getLoans() {
-		return new ArrayList<loan>(LNS.values());
+		return new ArrayList<loan>(loanNo.values());//version 1.0 changed LNS to loanNo
 	}
 
 	
 	public int getNumberOfCurrentLoans() {
-		return LNS.size();
+		return loanNo.size();//version 1.0 changed LNS to loanNo
 	}
 
 	
 	public double getFinesOwed() {
-		return FINES;
+		return fineAmount; //version 1.0 changed parameter 'FINES' to 'fineAmount'
 	}
 
 	
 	public void takeOutLoan(loan loan) {
-		if (!LNS.containsKey(loan.getId())) {
-			LNS.put(loan.getId(), loan);
+		if (!loanNo.containsKey(loan.getId())) { //version 1.0 changed LNS to loanNo
+			loanNo.put(loan.getId(), loan); //version 1.0 changed LNS to loanNo
 		}
 		else {
 			throw new RuntimeException("Duplicate loan added to member");
@@ -76,17 +76,17 @@ public class member implements Serializable {
 
 	
 	public String getLastName() {
-		return LN;
+		return lastName; //changed parameter name LN to lastName;
 	}
 
 	
 	public String getFirstName() {
-		return FN;
+		return firstName; //changed parameter name FN to firstName;
 	}
 
 
 	public void addFine(double fine) {
-		FINES += fine;
+		fineAmount += fine; //version 1.0 changed variable 'FINES' to 'fineAmount'
 	}
 	
 	public double payFine(double amount) {
@@ -94,20 +94,20 @@ public class member implements Serializable {
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
 		double change = 0;
-		if (amount > FINES) {
-			change = amount - FINES;
-			FINES = 0;
+		if (amount > fineAmount) { //version 1.0 changed variable 'FINES' to 'fineAmount'
+			change = amount - fineAmount; //version 1.0 changed variable 'FINES' to 'fineAmount'
+			fineAmount = 0; //version 1.0 changed variable 'FINES' to 'fineAmount'
 		}
 		else {
-			FINES -= amount;
+			fineAmount -= amount; //version 1.0 changed variable 'FINES' to 'fineAmount'
 		}
 		return change;
 	}
 
 
 	public void dischargeLoan(loan loan) {
-		if (LNS.containsKey(loan.getId())) {
-			LNS.remove(loan.getId());
+		if (loanNo.containsKey(loan.getId())) { //version 1.0 changed LNS to loanNo
+			loanNo.remove(loan.getId()); //version 1.0 changed LNS to loanNo
 		}
 		else {
 			throw new RuntimeException("No such loan held by member");

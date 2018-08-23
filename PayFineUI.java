@@ -7,13 +7,13 @@ public class PayFineUI {
 	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
 	private PayFineControl control;
-	private Scanner input;
+	private Scanner inputScanner;//version 1.0 changed variable name from 'input' to 'inputScanner'
 	private UI_STATE state;
 
 	
 	public PayFineUI(PayFineControl control) {
 		this.control = control;
-		input = new Scanner(System.in);
+		inputScanner = new Scanner(System.in);//version 1.0 changed variable name from 'input' to 'inputScanner' as a parameter
 		state = UI_STATE.INITIALISED;
 		control.setUI(this);
 	}
