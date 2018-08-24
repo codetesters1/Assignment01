@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class member implements Serializable {
+public class Member implements Serializable { //version 3.0 - class name: "Member" not "member" must start with capital letter
 
 	private String lastName; //version 1.0 variable name : "LastName;" not "LN;" - all uppercase is used for constants onlye' 
 	private String firstName; //version 1.0 variable name : "firstName;" not "FN;" - all uppercase is used for constants only
@@ -67,9 +67,10 @@ public class member implements Serializable {
 	}
 
 	
-	public void takeOutLoan(loan loan) {
-		if (!loanNo.containsKey(loan.getId())) { //version 1.0 Variable name must be meaningful - camelBack style
-			loanNo.put(loan.getId(), loan); //version 1.0 Variable name must be meaningful - camelBack style
+	public void takeOutLoan(Loan loanAmt) { //version 3.0 -class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
+		//version 3.0 Variable name must be meaningful - camelBack style
+		if (!loanNo.containsKey(loanAmt.getId())) { //version 3.0 Variable name must be meaningful - camelBack style
+			loanNo.put(loanAmt.getId(), loan); //version 3.0 Variable name must be meaningful - camelBack style
 		}
 		else {
 			throw new RuntimeException("Duplicate loan added to member");
@@ -85,31 +86,45 @@ public class member implements Serializable {
 	public String getFirstName() {
 		return firstName; //version 1.0 Variable name must be meaningful - camelBack style
 	}
-
-
-	public void addFine(double fine) {
-		fineAmount += fine; //version 1.0 Variable name must be meaningful - camelBack style
+	
+	public String getEmail() { //singletons must have get instance
+		return eMail; 
 	}
 	
-	public double payFine(double amount) {
-		if (amount < 0) {
+	public String getPhoneNo() { //singletons must have get instance
+		return phoneNo; 
+	} 
+	
+	public void addFine(double fineAmt) { //version 3.0  Variable name must be meaningful - camelBack style
+		fineAmount += fineAmt; //version 1.0 Variable name must be meaningful - camelBack style
+		//version 3.0  Variable name must be meaningful - camelBack style - fineAMt - not fine
+	}
+	
+	public double payFine(double payAmount) { //version 3.0 Variable name must be meaningful - camelBack style - not amount must be payAmount
+		if (payAmount < 0) { //version 3.0 Variable name must be meaningful - camelBack style
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
 		double change = 0;
-		if (amount > fineAmount) { //version 1.0 Variable name must be meaningful - camelBack style
-			change = amount - fineAmount; //version 1.0 Variable name must be meaningful - camelBack style
+		if (payAmount > fineAmount) { //version 1.0 Variable name must be meaningful - camelBack style
+			//version 3.0 Variable name must be meaningful - camelBack style - payAmount
+			change = payAmount - fineAmount; //version 1.0 Variable name must be meaningful - camelBack style
+			//version 3.0 Variable name must be meaningful - camelBack style -payAmount
 			fineAmount = 0; //version 1.0 Variable name must be meaningful - camelBack style
 		}
 		else {
-			fineAmount -= amount; //version 1.0 Variable name must be meaningful - camelBack style
+			fineAmount -= payAmount; //version 1.0 Variable name must be meaningful - camelBack style
+			//version 3.0 Variable name must be meaningful - camelBack style- payAmount
 		}
 		return change;
 	}
 
 
-	public void dischargeLoan(loan loan) {
-		if (loanNo.containsKey(loan.getId())) { //version 1.0 changed LNS to loanNo
-			loanNo.remove(loan.getId()); //version 1.0 changed LNS to loanNo
+	public void dischargeLoan(Loan loanAmt) { //version 3.0 -class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
+		//version 3.0 Variable name must be meaningful - camelBack style loanAmt -not loan
+		if (loanNo.containsKey(loanAmt.getId())) { //version 1.0 changed LNS to loanNo
+			//version 3.0 Variable name must be meaningful - camelBack style loanAmt -not loan
+			loanNo.remove(loanAmt.getId()); //version 1.0 changed LNS to loanNo
+			//version 3.0 Variable name must be meaningful - camelBack style loanAmt -not loan
 		}
 		else {
 			throw new RuntimeException("No such loan held by member");
