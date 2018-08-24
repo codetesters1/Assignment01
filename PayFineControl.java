@@ -1,7 +1,8 @@
 public class PayFineControl {
 	
-	private payFineUI uiName;
+	private PayFineUI uiName;
 	//version 2.0 -use meaningful name ,camelBack so "payFineUI uiName;" not "payFineUI ui;"
+	//version 3.0 clas name first letter must be capital , it should be PayFineUI not payFineUI
 	private enum CONTROL_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 	private CONTROL_STATE state;
 	
@@ -34,33 +35,41 @@ public class PayFineControl {
 		memberName = libraryName.getMember(memberId);//version 2.0 Variable name must be meaningful - camelBack style
 		
 		if (memberName == null) { //version 2.0 Variable name must be meaningful - camelBack style
-			uiName.display("Invalid Member Id");  //version 2.0 Variable name must be meaningful - camelBack style
+			uiName.displayUi("Invalid Member Id");  //version 2.0 Variable name must be meaningful - camelBack style
+			//version 3.0 method name should change frfom display to displayUi
 			return;
 		}
-		uiName.display(member.toString()); //version 2.0 Variable name must be meaningful - camelBack style
+		uiName.displayUi(memberName.toString()); //version 2.0 Variable name must be meaningful - camelBack style
+		//version3.0 -method name must be camelBack style not display - should be displayUi
+		//version3.0 -PayFineUI class file - display method should be updated to displayUi
 		uiName.setState(PayFineUI.UI_STATE.PAYING); //version 2.0 Variable name must be meaningful - camelBack style
 		state = CONTROL_STATE.PAYING;
 	}
 	
 	
-	public void cancel() {
+	public void cancelUi() { //version 3.0 method name must be camelBack and start from lowercase - should be cancelUi not cancel
 		uiName.setState(PayFineUI.UI_STATE.CANCELLED); //version 2.0 Variable name must be meaningful - camelBack style
 		state = CONTROL_STATE.CANCELLED;
 	}
 
 
-	public double payFine(double amount) {
+	public double payFine(double fineAmount) { //version 3.0 Variable name must be meaningful - camelBack style - should be fineAmount  not amount
 		if (!state.equals(CONTROL_STATE.PAYING)) {
 			throw new RuntimeException("PayFineControl: cannot call payFine except in PAYING state");
 		}	
-		double change = member.payFine(amount);
-		if (change > 0) {
-			ui.display(String.format("Change: $%.2f", change));
+		double changeAmt = memberName.payFine(fineAmount); //version 3.0 Variable name must be meaningful - camelBack style - should be fineAmount  not amount
+		//version 3.0 Variable name must be meaningful - camelBack style - should be memberName  not member
+		////version 3.0 Variable name must be meaningful - camelBack style - should be changeAmt  not change
+		if (changeAmt > 0) { //version 3.0 Variable name must be meaningful - camelBack style - should be changeAmt  not change
+			uiName.displayUi(String.format("Change: $%.2f", changeAmt));  //version 3.0 Variable name must be meaningful - camelBack style
+			//version 3.0 method name should change frfom display to displayUi
 		}
-		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.COMPLETED);
+		uiName.displayUi(memberName.toString()); //version 3.0 method name should change frfom display to displayUi
+		////version 3.0 Variable name must be meaningful - camelBack style- should be uiName not ui
+		uiName.setState(PayFineUI.UI_STATE.COMPLETED);
+		////version 3.0 Variable name must be meaningful - camelBack style- should be uiName not ui
 		state = CONTROL_STATE.COMPLETED;
-		return change;
+		return changeAmt; //version 3.0 Variable name must be meaningful - camelBack style
 	}
 	
 
