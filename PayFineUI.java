@@ -24,8 +24,8 @@ public class PayFineUI {
 	}
 
 
-	public void runDisplay() {
-		output("Pay Fine Use Case UI\n");
+	public void runDisplay() { //version 3.0 method name should be meaningful and camelBack style - runDisplay not run
+		outputDisplay("Pay Fine Use Case UI\n"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 		
 		while (true) {
 			
@@ -42,7 +42,7 @@ public class PayFineUI {
 					payControl.cardSwiped(memberId); // Variable name must be meaningful - camelBack style
 				}
 				catch (NumberFormatException e) {
-					output("Invalid memberId");
+					outputDisplay("Invalid memberId"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				}
 				break;
 				
@@ -58,22 +58,22 @@ public class PayFineUI {
 				}
 				catch (NumberFormatException e) {}
 				if (payAmount <= 0) { // Variable name must be meaningful - camelBack style
-					output("Amount must be positive");
+					outputDisplay("Amount must be positive"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 					break;
 				}
 				payControl.payFine(payAmount); // Variable name must be meaningful - camelBack style
 				break;
 								
 			case CANCELLED:
-				output("Pay Fine process cancelled");
+				outputDisplay("Pay Fine process cancelled"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				return;
 			
 			case COMPLETED:
-				output("Pay Fine process complete");
+				outputDisplay("Pay Fine process complete"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				return;
 			
 			default:
-				output("Unhandled state");
+				outputDisplay("Unhandled state"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
 			
 			}		
@@ -81,19 +81,22 @@ public class PayFineUI {
 	}
 
 	
-	private String input(String prompt) {
-		System.out.print(prompt);
+	private String inputDisplay(String promptMsg) { //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
+		//version 3.0 variable name must be cambelBack style - promptMsg not prompt
+		System.out.print(promptMsg); //version 3.0 variable name must be cambelBack style - promptMsg not prompt
 		return input.nextLine();
 	}	
 		
 		
-	private void output(Object object) {
-		System.out.println(object);
+	private void outputDisplay(Object objectOut) { //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
+		//version 3.0 variable name must be cambelBack style - objectOut not object
+		System.out.println(object);  //version 3.0 variable name must be cambelBack style - objectOut not object
 	}	
 			
 
-	public void display(Object object) {
-		output(object);
+	public void displayOut(Object objectDisplay) { //version 3.0 method name should be meaningful and camelBack style - displayOut not display
+		outputDisplay(objectDisplay); //version 3.0 variable name must be cambelBack style - objectDisplay not object
+		//version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 	}
 
 
