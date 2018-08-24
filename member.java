@@ -14,8 +14,8 @@ public class member implements Serializable {
 	private int idNo; //version 1.0 variable name : "idNo;" not "ID;" - all uppercase is used for constants only
 	private double fineAmount; //version 1.0 variable name : "fineAmount;" not "FINES;" - all uppercase is used for constants only
 	
-	private Map<Integer, loan> loanNo; //version 1.0 variable name : "fineAmount;" not "FINES;" - all uppercase is used for constants only
-
+	private Map<Integer, Loan> loanNo; //version 1.0 variable name : "fineAmount;" not "FINES;" - all uppercase is used for constants only
+	//version 2.0 -class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
 	
 	public member(String lastName, String firstName, String eMail, int phoneNo, int idNo) { // version 1.0 changed variables acoordingly, email-eMail, id-idNo
 		this.lastName = lastName;//version 1.0 Variable name must be meaningful - camelBack style
@@ -30,16 +30,18 @@ public class member implements Serializable {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Member:  ").append(ID).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
-		  .append("  Name:  ").append(LN).append(", ").append(FN).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
-		  .append("  Email: ").append(EM).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
-		  .append("  Phone: ").append(PN) //version 2.0 Variable name must be meaningful - camelBack style
+		sb.append("Member:  ").append(idNo).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
+		  .append("  Name:  ").append(lastName).append(", ").append(FN).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
+		  .append("  Email: ").append(eMail).append("\n") //version 2.0 Variable name must be meaningful - camelBack style
+		  .append("  Phone: ").append(phoneNo) //version 2.0 Variable name must be meaningful - camelBack style
 		  .append("\n")
-		  .append(String.format("  Fines Owed :  $%.2f", FINES)) //version 2.0 Variable name must be meaningful - camelBack style
+		  .append(String.format("  Fines Owed :  $%.2f", fineAmount)) //version 2.0 Variable name must be meaningful - camelBack style
 		  .append("\n");
 		
-		for (loan loan : LNS.values()) { //version 2.0 Variable name must be meaningful - camelBack style
-			sb.append(loan).append("\n");
+		for (Loan currentLoan : loanNo.values()) { //version 2.0 Variable name must be meaningful - camelBack style
+			//version 2.0 -class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
+			//version 2.0- "Loan currentLoan" not "loan loan" as the class type must start with capital letter and meaningful
+			sb.append(currentLoan).append("\n"); //version 2.0 -not  sb.append(loan).append("/n"); rather sb.append(currentLoan).append("/n");
 		}		  
 		return sb.toString();
 	}
@@ -50,7 +52,7 @@ public class member implements Serializable {
 	}
 
 	
-	public List<loan> getLoans() {
+	public List<Loan> getLoans() { //version 2.0 -class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
 		return new ArrayList<loan>(loanNo.values());//version 1.0 Variable name must be meaningful - camelBack style
 	}
 
