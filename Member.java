@@ -104,7 +104,7 @@ public class Member implements Serializable { //version 3.0 - class name: "Membe
 		if (payAmount < 0) { //version 3.0 Variable name must be meaningful - camelBack style
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
-		double change = 0;
+		double changeAmt = 0; //version 3.0 Variable name must be meaningful - camelBack style - not change must be be changeAmt
 		if (payAmount > fineAmount) { //version 1.0 Variable name must be meaningful - camelBack style
 			//version 3.0 Variable name must be meaningful - camelBack style - payAmount
 			change = payAmount - fineAmount; //version 1.0 Variable name must be meaningful - camelBack style
@@ -115,7 +115,7 @@ public class Member implements Serializable { //version 3.0 - class name: "Membe
 			fineAmount -= payAmount; //version 1.0 Variable name must be meaningful - camelBack style
 			//version 3.0 Variable name must be meaningful - camelBack style- payAmount
 		}
-		return change;
+		return changeAmt; //version 3.0 Variable name must be meaningful - camelBack style - not change must be be changeAmt
 	}
 
 
