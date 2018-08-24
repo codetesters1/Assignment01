@@ -1,25 +1,28 @@
 public class PayFineControl {
 	
-	private payFineUI ui;
+	private payFineUI uiName;
+	//version 2.0 -use meaningful name ,camelBack so "payFineUI uiName;" not "payFineUI ui;"
 	private enum CONTROL_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 	private CONTROL_STATE state;
 	
-	private Library library;//version 1.0 -Changed variable name from 'libaray' to 'Library'
-	private Member member;;//version 1.0 -Changed variable name from 'member' to 'Member'
-
-
+	private Library libraryName;
+	//version 2.0 class Name "Library" not "library" starts with capital letter - The file loan.java must be updated to reflect this fact
+	//version 2.0 -use meaningful name ,camelBack so "Library libraryName;" not "Library library;"
+	private Member memberName;
+	//version 2.0 class Name "Member" not "member" starts with capital letter - The file loan.java must be updated to reflect this fact
+	//version 2.0 -use meaningful name ,camelBack so "Member memberName;" not "Member member;"
 	public PayFineControl() {
-		this.library = library.INSTANCE();
+		this.libraryName = libraryName.INSTANCE();//version 2.0 Variable name must be meaningful - camelBack style
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
 	
-	public void setUI(PayFineUI ui) {
+	public void setUI(PayFineUI uiName) { //version 2.0 -use meaningful name ,camelBack so "payFineUI uiName;" not "payFineUI ui;"
 		if (!state.equals(CONTROL_STATE.INITIALISED)) {
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}	
-		this.ui = ui;
-		ui.setState(PayFineUI.UI_STATE.READY);
+		this.uiName = ui;//version 2.0 Variable name must be meaningful - camelBack style
+		uiName.setState(PayFineUI.UI_STATE.READY);//version 2.0 Variable name must be meaningful - camelBack style
 		state = CONTROL_STATE.READY;		
 	}
 
@@ -28,20 +31,20 @@ public class PayFineControl {
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("PayFineControl: cannot call cardSwiped except in READY state");
 		}	
-		member = library.getMember(memberId);
+		memberName = libraryName.getMember(memberId);//version 2.0 Variable name must be meaningful - camelBack style
 		
-		if (member == null) {
-			ui.display("Invalid Member Id");
+		if (memberName == null) { //version 2.0 Variable name must be meaningful - camelBack style
+			uiName.display("Invalid Member Id");  //version 2.0 Variable name must be meaningful - camelBack style
 			return;
 		}
-		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.PAYING);
+		uiName.display(member.toString()); //version 2.0 Variable name must be meaningful - camelBack style
+		uiName.setState(PayFineUI.UI_STATE.PAYING); //version 2.0 Variable name must be meaningful - camelBack style
 		state = CONTROL_STATE.PAYING;
 	}
 	
 	
 	public void cancel() {
-		ui.setState(PayFineUI.UI_STATE.CANCELLED);
+		uiName.setState(PayFineUI.UI_STATE.CANCELLED); //version 2.0 Variable name must be meaningful - camelBack style
 		state = CONTROL_STATE.CANCELLED;
 	}
 
