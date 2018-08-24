@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
 
-public class FixBookUI {
+public class FixBookUserInterface { //Class, variable, and method names should not use abbreviations, except for common acronyms
 
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
-	private FixBookControl control;
+	private FixBookControl control; //comment
 	private Scanner input;
 	private UI_STATE state;
 
 	
-	public FixBookUI(FixBookControl control) {
+	public FixBookUserInterface(FixBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;
@@ -31,13 +31,13 @@ public class FixBookUI {
 			switch (state) {
 			
 			case READY:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): "); //Variable name should be meaningful and should not be abbreviations
+				if (bookString.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookStr).intValue();
+						int bookId = Integer.valueOf(bookString).intValue();
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -47,9 +47,9 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String ans = input("Fix Book? (Y/N) : ");
+				String answer = input("Fix Book? (Y/N) : "); //Variable name should be meaningful
 				boolean fix = false;
-				if (ans.toUpperCase().equals("Y")) {
+				if (answer.toUpperCase().equals("Y")) {
 					fix = true;
 				}
 				control.fixBook(fix);

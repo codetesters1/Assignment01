@@ -6,16 +6,16 @@ public class PayFineUI {
 
 	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
-	private PayFineControl control;
+	private PayFineControl payControl;// use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
 	private Scanner inputScanner;//version 1.0 changed variable name from 'input' to 'inputScanner'
 	private UI_STATE state;
 
 	
-	public PayFineUI(PayFineControl control) {
-		this.control = control;
+	public PayFineUI(PayFineControl payControl) {// use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
+		this.payControl = payControl;
 		inputScanner = new Scanner(System.in);//version 1.0 changed variable name from 'input' to 'inputScanner' as a parameter
 		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+		payControl.setUI(this);
 	}
 	
 	
@@ -24,7 +24,7 @@ public class PayFineUI {
 	}
 
 
-	public void run() {
+	public void runDisplay() {
 		output("Pay Fine Use Case UI\n");
 		
 		while (true) {
@@ -32,14 +32,14 @@ public class PayFineUI {
 			switch (state) {
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
+				String memStr = inputScanner("Swipe member card (press <enter> to cancel): "); // Variable name must be meaningful - camelBack style
 				if (memStr.length() == 0) {
-					control.cancel();
+					payControl.cancel(); // Variable name must be meaningful - camelBack style
 					break;
 				}
 				try {
 					int memberId = Integer.valueOf(memStr).intValue();
-					control.cardSwiped(memberId);
+					payControl.cardSwiped(memberId); // Variable name must be meaningful - camelBack style
 				}
 				catch (NumberFormatException e) {
 					output("Invalid memberId");
@@ -47,21 +47,21 @@ public class PayFineUI {
 				break;
 				
 			case PAYING:
-				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");
+				double payAmount = 0; // variable name : "payAmount;" not "amount;" - all uppercase is used for constants only
+				String amtStr = inputScanner("Enter amount (<Enter> cancels) : "); // Variable name must be meaningful - camelBack style
 				if (amtStr.length() == 0) {
-					control.cancel();
+					payControl.cancel(); // Variable name must be meaningful - camelBack style
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();
+					payAmount = Double.valueOf(amtStr).doubleValue(); // Variable name must be meaningful - camelBack style
 				}
 				catch (NumberFormatException e) {}
-				if (amount <= 0) {
+				if (payAmount <= 0) { // Variable name must be meaningful - camelBack style
 					output("Amount must be positive");
 					break;
 				}
-				control.payFine(amount);
+				payControl.payFine(payAmount); // Variable name must be meaningful - camelBack style
 				break;
 								
 			case CANCELLED:

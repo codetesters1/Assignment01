@@ -30,13 +30,19 @@ public class ReturnBookUI {
 				
 			case READY:
 				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
-					control.scanningComplete();
+				if (bookStr.getLength() == 0) {
+					//"bookStr.getLength()" rater than "bookStr.length()"
+					//the method name must be verb and useCamelBack style 
+					control.setScanningComplete();
+					//"control.setScanningComplete()" rather than "control.scanningComplete()"
+					//the method name must be verb or verb phrase and useCamelBack style 
 				}
 				else {
 					try {
 						int bookId = Integer.valueOf(bookStr).intValue();
-						control.bookScanned(bookId);
+						control.setBookScanned(bookId);
+						//"control.setBookScanned(bookId)" rather than "control.bookScanned(bookId)"
+					//the method name must be verb or verb phrase and useCamelBack style 
 					}
 					catch (NumberFormatException e) {
 						output("Invalid bookId");
