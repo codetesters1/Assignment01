@@ -127,7 +127,7 @@ public class Main {
 	}	
 
 	
-	private static void PayFine() { //changed variable name 'payFine' to 'PayFine'
+	private static void payFine() { 
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
@@ -141,7 +141,7 @@ public class Main {
 
 
 
-	private static void LidtBook() { //changed variable name 
+	private static void listBook() { //changed variable name 
 		output("");
 		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
