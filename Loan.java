@@ -2,6 +2,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 // checked by Documentor
+//Updated by Moderator
 @SuppressWarnings("serial")
 public class Loan implements Serializable {// class name: "Loan" not "loan" must start with capital letter
 	
@@ -78,12 +79,12 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 
 
 	public member Member() {
-		return M;
+		return myMember;//updated by moderator -Dushan - changed from M to my Member
 	}
 
 
 	public book Book() {
-		return B;
+		return myBook;//updated by moderator -Dushan - changed from B to myBook
 	}
 
 
