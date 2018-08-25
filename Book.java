@@ -1,7 +1,7 @@
 
 
 import java.io.Serializable;
-\\\\\\\\\\\\\\Testing
+//Updated by Moderator- Dushan
 
 
 
@@ -43,7 +43,14 @@ public class Book implements Serializable {   // version_1.00 changed class name
 	public String getTitle() { // method name Title replaced to gETtITLE 
 		return title;       // version_1.15 T replaced to tilte
 	}
-
+	
+	public Integer getAuthor() {   //Updated by Moderator -Dushan -singletons must have get instance
+		return author;     
+	}
+	
+	public Integer getCallNo() {   //Updated by Moderator -Dushan -singletons must have get instance
+		return callNo;     
+	}
 
 	
 	public boolean isAvailable() { // version 1.16 method name Availbale replaced to isAvailable 
