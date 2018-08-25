@@ -123,14 +123,14 @@ public class Library implements Serializable { //changed class name's first lett
 
 
 	public member addItem(String lastName, String firstName, String email, int phoneNo) {	//changed method name to meet guidelines	
-		member member = new member(lastName, firstName, email, phoneNo, nextMID());
+		member member = new member(lastName, firstName, email, phoneNo, nextMemberId());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
 	public book addBook(String a, String t, String c) {	//changed method name to meet guidelines	
-		book b = new book(a, t, c, nextBID());
+		book b = new book(a, t, c, nextBookId());
 		catalog.put(b.ID(), b);		
 		return b;
 	}
