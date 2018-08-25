@@ -59,12 +59,12 @@ public class Main {
 			
 			while (!exitMenu) { //changed variable name
 				
-<<<<<<< HEAD
+
 				output("\n" + simpleDataFormat.format(calendar.Date()));//changed the variable name CAL to calendar
 				String choice = input(menu);//variable name change			
 				switch (choice.toUpperCase()) { //changed variable name c to choice
 =======
-				output("\n" + SDF.format(calendar.Date()));//replaced the variable name CAL to calendar
+				output("\n" + simpleDataFormat.format(calendar.Date()));//replaced the variable name CAL to calendar
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
@@ -102,7 +102,7 @@ public class Main {
 					break;
 					
 				case "P": 
-					PayFine();
+					payFine();
 					break;
 					
 				case "T": 
@@ -141,7 +141,11 @@ public class Main {
 
 
 
+
 	private static void listBook() { //changed variable name 
+
+	private static void ListBook() { //changed variable name 
+
 		output("");
 		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
@@ -150,7 +154,7 @@ public class Main {
 
 
 
-	private static void listMembers() {
+	private static void ListMembers() {
 		output("");
 		for (member member : lib.Members()) {//Changed the variable name from lib to lib
 			output(member + "\n");
@@ -159,22 +163,22 @@ public class Main {
 
 
 
-	private static void borrowBook() {
+	private static void BorrowBook() {
 		new BorrowBookUI(new BorrowBookControl()).run();		
 	}
 
 
-	private static void returnBook() {
+	private static void ReturnBook() {
 		new ReturnBookUI(new ReturnBookControl()).run();		
 	}
 
 
-	private static void fixBooks() {
+	private static void FixBooks() {
 		new FixBookUI(new FixBookControl()).run();		
 	}
 
 
-	private static void incrementDate() {
+	private static void IncrementDate() {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			calendar.incrementDate(days);//changed the variable name CAL to calendar
@@ -187,7 +191,7 @@ public class Main {
 	}
 
 
-	private static void addBook() {
+	private static void AddBook() {
 		
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
@@ -198,7 +202,7 @@ public class Main {
 	}
 
 	
-	private static void addMember() {
+	private static void AddMember() {
 		try {
 			String lastName = input("Enter last name: ");
 			String firstName  = input("Enter first name: ");
