@@ -6,21 +6,21 @@ public class PayFineUI {
 
 	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
-	private PayFineControl payControl;// use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
-	private Scanner inputScanner;//version 1.0 changed variable name from 'input' to 'inputScanner'
-	private UI_STATE state;
+	private PayFineControl payControl; // use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
+	private Scanner inputScanner; //version 1.0 changed variable name from 'input' to 'inputScanner'
+	private UI_STATE stateUi; //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 
 	
 	public PayFineUI(PayFineControl payControl) {// use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
 		this.payControl = payControl;
 		inputScanner = new Scanner(System.in);//version 1.0 changed variable name from 'input' to 'inputScanner' as a parameter
-		state = UI_STATE.INITIALISED;
+		stateUi = UI_STATE.INITIALISED; //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 		payControl.setUI(this);
 	}
 	
 	
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setState(UI_STATE stateUi) { //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
+		this.stateUi = stateUi; //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 	}
 
 
@@ -29,12 +29,13 @@ public class PayFineUI {
 		
 		while (true) {
 			
-			switch (state) {
+			switch (stateUi) { //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 			
 			case READY:
 				String memStr = inputScanner("Swipe member card (press <enter> to cancel): "); // Variable name must be meaningful - camelBack style
 				if (memStr.length() == 0) {
-					payControl.cancel(); // Variable name must be meaningful - camelBack style
+					payControl.cancelUi(); // Variable name must be meaningful - camelBack style
+					//version 3.0 - PayControlUi- cancel method should be cancelUi
 					break;
 				}
 				try {
@@ -50,7 +51,8 @@ public class PayFineUI {
 				double payAmount = 0; // variable name : "payAmount;" not "amount;" - all uppercase is used for constants only
 				String amtStr = inputScanner("Enter amount (<Enter> cancels) : "); // Variable name must be meaningful - camelBack style
 				if (amtStr.length() == 0) {
-					payControl.cancel(); // Variable name must be meaningful - camelBack style
+					payControl.cancelUi(); // Variable name must be meaningful - camelBack style
+					//version 3.0 - PayControlUi- cancel method should be cancelUi
 					break;
 				}
 				try {
@@ -74,7 +76,7 @@ public class PayFineUI {
 			
 			default:
 				outputDisplay("Unhandled state"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
-				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + stateUi);	//version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"		
 			
 			}		
 		}		
