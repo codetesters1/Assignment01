@@ -1,99 +1,104 @@
 import java.util.Scanner;
 
-
+// Checked by Facilitator
 public class PayFineUI {
 
 
 	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
-	private PayFineControl control;
-	private Scanner input;
-	private UI_STATE state;
+	private PayFineControl payControl; // use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
+	private Scanner inputScanner; //version 1.0 changed variable name from 'input' to 'inputScanner'
+	private UI_STATE stateUi; //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 
 	
-	public PayFineUI(PayFineControl control) {
-		this.control = control;
-		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+	public PayFineUI(PayFineControl payControl) {// use meaningful name ,camelBack so "PayFineControl payControl;" not "PayFineControl control;"
+		this.payControl = payControl;
+		inputScanner = new Scanner(System.in);//version 1.0 changed variable name from 'input' to 'inputScanner' as a parameter
+		stateUi = UI_STATE.INITIALISED; //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
+		payControl.setUI(this);
 	}
 	
 	
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setState(UI_STATE stateUi) { //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
+		this.stateUi = stateUi; //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 	}
 
 
-	public void run() {
-		output("Pay Fine Use Case UI\n");
+	public void runDisplay() { //version 3.0 method name should be meaningful and camelBack style - runDisplay not run
+		outputDisplay("Pay Fine Use Case UI\n"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 		
 		while (true) {
 			
-			switch (state) {
+			switch (stateUi) { //version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
+				String memStr = inputScanner("Swipe member card (press <enter> to cancel): "); // Variable name must be meaningful - camelBack style
 				if (memStr.length() == 0) {
-					control.cancel();
+					payControl.cancelUi(); // Variable name must be meaningful - camelBack style
+					//version 3.0 - PayControlUi- cancel method should be cancelUi
 					break;
 				}
 				try {
 					int memberId = Integer.valueOf(memStr).intValue();
-					control.cardSwiped(memberId);
+					payControl.cardSwiped(memberId); // Variable name must be meaningful - camelBack style
 				}
 				catch (NumberFormatException e) {
-					output("Invalid memberId");
+					outputDisplay("Invalid memberId"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				}
 				break;
 				
 			case PAYING:
-				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");
+				double payAmount = 0; // variable name : "payAmount;" not "amount;" - all uppercase is used for constants only
+				String amtStr = inputScanner("Enter amount (<Enter> cancels) : "); // Variable name must be meaningful - camelBack style
 				if (amtStr.length() == 0) {
-					control.cancel();
+					payControl.cancelUi(); // Variable name must be meaningful - camelBack style
+					//version 3.0 - PayControlUi- cancel method should be cancelUi
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();
+					payAmount = Double.valueOf(amtStr).doubleValue(); // Variable name must be meaningful - camelBack style
 				}
 				catch (NumberFormatException e) {}
-				if (amount <= 0) {
-					output("Amount must be positive");
+				if (payAmount <= 0) { // Variable name must be meaningful - camelBack style
+					outputDisplay("Amount must be positive"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 					break;
 				}
-				control.payFine(amount);
+				payControl.payFine(payAmount); // Variable name must be meaningful - camelBack style
 				break;
 								
 			case CANCELLED:
-				output("Pay Fine process cancelled");
+				outputDisplay("Pay Fine process cancelled"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				return;
 			
 			case COMPLETED:
-				output("Pay Fine process complete");
+				outputDisplay("Pay Fine process complete"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 				return;
 			
 			default:
-				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
+				outputDisplay("Unhandled state"); //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
+				throw new RuntimeException("FixBookUI : unhandled state :" + stateUi);	//version 3.0 -use meaningful name ,camelBack so "UI_STATE stateUi;" not "UI_STATE state;"		
 			
 			}		
 		}		
 	}
 
 	
-	private String input(String prompt) {
-		System.out.print(prompt);
+	private String inputDisplay(String promptMsg) { //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
+		//version 3.0 variable name must be cambelBack style - promptMsg not prompt
+		System.out.print(promptMsg); //version 3.0 variable name must be cambelBack style - promptMsg not prompt
 		return input.nextLine();
 	}	
 		
 		
-	private void output(Object object) {
-		System.out.println(object);
+	private void outputDisplay(Object objectOut) { //version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
+		//version 3.0 variable name must be cambelBack style - objectOut not object
+		System.out.println(object);  //version 3.0 variable name must be cambelBack style - objectOut not object
 	}	
 			
 
-	public void display(Object object) {
-		output(object);
+	public void displayOut(Object objectDisplay) { //version 3.0 method name should be meaningful and camelBack style - displayOut not display
+		outputDisplay(objectDisplay); //version 3.0 variable name must be cambelBack style - objectDisplay not object
+		//version 3.0 method name should be meaningful and camelBack style - outputDisplay not output
 	}
 
 
