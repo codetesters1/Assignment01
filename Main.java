@@ -8,7 +8,7 @@ public class Main {
 	private static library lib;//Changed the variable name from Lib to lib
 	private static String menu;//Changed variable neme from MENU to menu
 	private static Calendar calendar; //changed the variable name CAL to calendar
-	private static SimpleDateFormat SDF; 
+	private static SimpleDateFormat simpleDataFormat; //changed the variable name SDF to simpleDataFormat
 	
 	
 	private static String Get_menu() {
