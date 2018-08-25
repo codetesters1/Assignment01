@@ -56,7 +56,7 @@ public class Main {
 			
 			boolean exitMenu = false; //changed e to exitMenu
 			
-			while (!e) {
+			while (!exitMenu) { //changed variable name
 				
 				output("\n" + simpleDataFormat.format(calendar.Date()));//changed the variable name CAL to calendar
 				String c = input(menu);//variable name change				
