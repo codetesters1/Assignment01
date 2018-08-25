@@ -1,11 +1,11 @@
 import java.util.Scanner;
-
+// checked by Moderator
 
 public class FixBookUI { 
 
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
-	private FixBookControl control; //comment
+	private FixBookControl control;
 	private Scanner input;
 	private UI_STATE state;
 
