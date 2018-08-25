@@ -6,7 +6,7 @@ public class Main {
 	
 	private static Scanner input; //Changed the variable name from Input to input
 	private static library lib;//Changed the variable name from Lib to lib
-	private static String MENU;
+	private static String menu;//Changed variable neme from MENU to menu
 	private static Calendar calendar; //changed the variable name CAL to calendar
 	private static SimpleDateFormat SDF; 
 	
