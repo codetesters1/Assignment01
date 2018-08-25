@@ -54,7 +54,7 @@ public class Main {
 						
 			menu = GetMenu(); //Changed variable neme from MENU to menu and changed class name
 			
-			boolean e = false;
+			boolean exitMenu = false; //changed e to exitMenu
 			
 			while (!e) {
 				
