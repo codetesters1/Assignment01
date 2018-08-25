@@ -35,11 +35,11 @@ public class FixBookControl {
 			return;
 		}
 		if (!currentBook.Damaged()) {
-			ui.display("\"Book has not been damaged");
+			userInterface.display("\"Book has not been damaged");
 			return;
 		}
-		ui.display(currentBook.toString());
-		ui.setState(FixBookUI.UI_STATE.FIXING);
+		userInterface.display(currentBook.toString());
+		userInterface.setState(FixBookUI.UI_STATE.FIXING);
 		state = CONTROL_STATE.FIXING;		
 	}
 
