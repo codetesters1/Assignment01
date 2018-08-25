@@ -1,6 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
+// checked by Moderator
 
 public class Main {
 	
@@ -58,7 +59,7 @@ public class Main {
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(calendar.Date()));//changed the variable name CAL to calendar
+				output("\n" + SDF.format(calendar.Date()));//replaced the variable name CAL to calendar
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
