@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+// checked by Documentor
 @SuppressWarnings("serial")
 public class Loan implements Serializable {// class name: "Loan" not "loan" must start with capital letter
 	
