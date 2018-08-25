@@ -16,7 +16,7 @@ public class Calendar {
 		if (self == null) {
 			self = new Calendar();
 		}
-		return self; // COMMENT
+		return self; 
 	}
 	
 	public void incrementDate(int days) {
