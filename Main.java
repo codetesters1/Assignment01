@@ -45,11 +45,11 @@ public class Main {
 			simpleDataFormat = new SimpleDateFormat("dd/MM/yyyy");//changed variable name
 	
 			for (member member : lib.Members()) {//Changed the variable name from lib to lib and m to member
-				output(m);
+				output(member);
 			}
 			output(" ");
-			for (book b : lib.Books()) {//Changed the variable name from lib to lib
-				output(b);
+			for (book book : lib.Books()) {//Changed the variable name from lib to lib and b to book
+				output(book);
 			}
 						
 			menu = GetMenu(); //Changed variable neme from MENU to menu and changed class name
