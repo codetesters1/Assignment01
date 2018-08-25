@@ -7,12 +7,12 @@ public class Main {
 	
 	private static Scanner input; //Changed the variable name from Input to input
 	private static library lib;//Changed the variable name from Lib to lib
-	private static String MENU;
+	private static String menu;//Changed variable neme from MENU to menu
 	private static Calendar calendar; //changed the variable name CAL to calendar
-	private static SimpleDateFormat SDF; 
+	private static SimpleDateFormat simpleDataFormat; //changed the variable name SDF to simpleDataFormat
 	
 	
-	private static String Get_menu() {
+	private static String GetMenu() { //changed class name from 'Get_menu' to GetMenu
 		StringBuilder strBuilder = new StringBuilder(); //changed variable 'sb' to 'strBuilder'
 		
 		strBuilder.append("\nLibrary Main Menu\n\n") //changed variable 'sb' to 'strBuilder'
@@ -43,23 +43,28 @@ public class Main {
 			input = new Scanner(System.in);//Changed the variable name from input to input
 			lib = library.INSTANCE();//Changed the variable name from lib to lib
 			calendar = Calendar.getInstance(); //changed the variable name CAL to calendar
-			SDF = new SimpleDateFormat("dd/MM/yyyy");
+			simpleDataFormat = new SimpleDateFormat("dd/MM/yyyy");//changed variable name
 	
-			for (member m : lib.Members()) {//Changed the variable name from lib to lib
-				output(m);
+			for (member member : lib.Members()) {//Changed the variable name from lib to lib and m to member
+				output(member);
 			}
 			output(" ");
-			for (book b : lib.Books()) {//Changed the variable name from lib to lib
-				output(b);
+			for (book book : lib.Books()) {//Changed the variable name from lib to lib and b to book
+				output(book);
 			}
 						
-			MENU = Get_menu();
+			menu = GetMenu(); //Changed variable neme from MENU to menu and changed class name
 			
-			boolean e = false;
+			boolean exitMenu = false; //changed e to exitMenu
 			
-			while (!e) {
+			while (!exitMenu) { //changed variable name
 				
-				output("\n" + SDF.format(calendar.Date()));//replaced the variable name CAL to calendar
+
+				output("\n" + simpleDataFormat.format(calendar.Date()));//changed the variable name CAL to calendar
+				String choice = input(menu);//variable name change			
+				switch (choice.toUpperCase()) { //changed variable name c to choice
+=======
+				output("\n" + simpleDataFormat.format(calendar.Date()));//replaced the variable name CAL to calendar
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
@@ -105,7 +110,7 @@ public class Main {
 					break;
 					
 				case "Q": 
-					e = true;
+					exitMenu = true; //changed variable name
 					break;
 					
 				default: 
@@ -122,7 +127,7 @@ public class Main {
 	}	
 
 	
-	private static void payFine() {
+	private static void payFine() { 
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
@@ -136,7 +141,11 @@ public class Main {
 
 
 
-	private static void listBooks() {
+
+	private static void listBook() { //changed variable name 
+
+	private static void ListBook() { //changed variable name 
+
 		output("");
 		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
@@ -159,7 +168,7 @@ public class Main {
 	}
 
 
-	private static void returnBook() {
+	private static void feturnBook() {
 		new ReturnBookUI(new ReturnBookControl()).run();		
 	}
 
@@ -174,7 +183,7 @@ public class Main {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			calendar.incrementDate(days);//changed the variable name CAL to calendar
 			lib.checkCurrentLoans();//Changed the variable name from lib to lib
-			output(SDF.format(calendar.Date()));//changed the variable name CAL to calendar
+			output(simpleDataFormat.format(calendar.Date()));//changed the variable name CAL to calendar and SDF to simpleDataFormat
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");

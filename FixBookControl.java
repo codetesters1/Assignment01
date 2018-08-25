@@ -31,15 +31,15 @@ public class FixBookControl {
 		currentBook = library.Book(bookId);
 		
 		if (currentBook == null) {
-			ui.display("Invalid bookId");
+			userInterface.display("Invalid bookId");
 			return;
 		}
 		if (!currentBook.Damaged()) {
-			ui.display("\"Book has not been damaged");
+			userInterface.display("\"Book has not been damaged");
 			return;
 		}
-		ui.display(currentBook.toString());
-		ui.setState(FixBookUI.UI_STATE.FIXING);
+		userInterface.display(currentBook.toString());
+		userInterface.setState(FixBookUI.UI_STATE.FIXING);
 		state = CONTROL_STATE.FIXING;		
 	}
 
@@ -52,7 +52,7 @@ public class FixBookControl {
 			library.repairBook(currentBook);
 		}
 		currentBook = null;
-		ui.setState(FixBookUI.UI_STATE.READY);
+		userInterface.setState(FixBookUI.UI_STATE.READY);
 		state = CONTROL_STATE.READY;		
 	}
 
@@ -61,7 +61,7 @@ public class FixBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
-		ui.setState(FixBookUI.UI_STATE.COMPLETED);		
+		userInterface.setState(FixBookUI.UI_STATE.COMPLETED);		
 	}
 
 

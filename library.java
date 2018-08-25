@@ -13,19 +13,19 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class library implements Serializable {
+public class Library implements Serializable { //changed class name's first letter to uppercase
 	
-	private static final String LIBRARY_FILE = "library.obj";
-	private static final int LOAN_LIMIT = 2;
-	private static final int LOAN_PERIOD = 2;
-	private static final double FINE_PER_DAY = 1.0;
-	private static final double MAX_FINES_OWED = 5.0;
-	private static final double DAMAGE_FEE = 2.0;
+	private static final String libraryFile = "library.obj";
+	private static final int loanLimit = 2;
+	private static final int loanPeriod = 2;
+	private static final double finePerDay = 1.0;
+	private static final double macFinesOwned = 5.0;
+	private static final double damageFee = 2.0;
 	
 	private static library self;
-	private int BID;
-	private int MID;
-	private int LID;
+	private int bookId;
+	private int memberId;
+	private int loanId;
 	private Date loadDate;
 	
 	private Map<Integer, book> catalog;
@@ -41,9 +41,9 @@ public class library implements Serializable {
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		BID = 1;
-		MID = 1;		
-		LID = 1;		
+		bookId = 1;
+		memberId = 1;		
+		loanId = 1;		
 	}
 
 	
@@ -67,7 +67,7 @@ public class library implements Serializable {
 	}
 
 	
-	public static synchronized void SAVE() {
+	public static synchronized void save() { //changed method name to meet guidelines
 		if (self != null) {
 			self.loadDate = Calendar.getInstance().Date();
 			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
@@ -82,55 +82,55 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
-		return BID;
+	public int bookID() { //changed method name to meet guidelines
+		return bookId;
 	}
 	
 	
-	public int MemberID() {
-		return MID;
+	public int memberID() { //changed method name to meet guidelines
+		return memberId;
 	}
 	
 	
-	private int nextBID() {
-		return BID++;
-	}
-
-	
-	private int nextMID() {
-		return MID++;
+	private int nextBookId() {
+		return bookId++;
 	}
 
 	
-	private int nextLID() {
-		return LID++;
+	private int nectMemberId() {
+		return memberId++;
 	}
 
 	
-	public List<member> Members() {		
+	private int nextLoanId() {
+		return loanId++;
+	}
+
+	
+	public List<member> members() {	//changed method name to meet guidelines	
 		return new ArrayList<member>(members.values()); 
 	}
 
 
-	public List<book> Books() {		
+	public List<book> books() {	//changed method name to meet guidelines	
 		return new ArrayList<book>(catalog.values()); 
 	}
 
 
-	public List<loan> CurrentLoans() {
+	public List<loan> currentLoans() { //changed method name to meet guidelines
 		return new ArrayList<loan>(currentLoans.values());
 	}
 
 
-	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
-		member member = new member(lastName, firstName, email, phoneNo, nextMID());
+	public member addItem(String lastName, String firstName, String email, int phoneNo) {	//changed method name to meet guidelines	
+		member member = new member(lastName, firstName, email, phoneNo, nextMemberId());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
-		book b = new book(a, t, c, nextBID());
+	public book addBook(String a, String t, String c) {	//changed method name to meet guidelines	
+		book b = new book(a, t, c, nextBookId());
 		catalog.put(b.ID(), b);		
 		return b;
 	}
@@ -143,7 +143,7 @@ public class library implements Serializable {
 	}
 
 	
-	public book Book(int bookId) {
+	public book book(int bookId) { //changed first letter to lowercase
 		if (catalog.containsKey(bookId)) 
 			return catalog.get(bookId);		
 		return null;
