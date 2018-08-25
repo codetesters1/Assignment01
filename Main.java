@@ -59,12 +59,12 @@ public class Main {
 			
 			while (!exitMenu) { //changed variable name
 				
-<<<<<<< HEAD
+
 				output("\n" + simpleDataFormat.format(calendar.Date()));//changed the variable name CAL to calendar
 				String choice = input(menu);//variable name change			
 				switch (choice.toUpperCase()) { //changed variable name c to choice
 =======
-				output("\n" + SDF.format(calendar.Date()));//replaced the variable name CAL to calendar
+				output("\n" + simpleDataFormat.format(calendar.Date()));//replaced the variable name CAL to calendar
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
@@ -102,7 +102,7 @@ public class Main {
 					break;
 					
 				case "P": 
-					PayFine();
+					payFine();
 					break;
 					
 				case "T": 
@@ -127,12 +127,12 @@ public class Main {
 	}	
 
 	
-	private static void PayFine() { //changed variable name 'payFine' to 'PayFine'
+	private static void payFine() { 
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
 
-	private static void ListCurrentLoans() {
+	private static void listCurrentLoans() {
 		output("");
 		for (loan loan : lib.CurrentLoans()) {
 			output(loan + "\n");
@@ -141,7 +141,11 @@ public class Main {
 
 
 
+
+	private static void listBook() { //changed variable name 
+
 	private static void ListBook() { //changed variable name 
+
 		output("");
 		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
@@ -198,7 +202,7 @@ public class Main {
 	}
 
 	
-	private static void AddMember() {
+	private static void addMember() {
 		try {
 			String lastName = input("Enter last name: ");
 			String firstName  = input("Enter first name: ");
