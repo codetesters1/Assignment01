@@ -1,6 +1,7 @@
 public class PayFineControl {
 	// checked by Facilitator
-	private PayFineUI uiName;
+	//checked by reviewer: Don 
+	private PayFineUI uiName; //checked by reviewer: uiName doesn't meet variable name guidelines, abbreviations should not be used in naming
 	//version 2.0 -use meaningful name ,camelBack so "payFineUI uiName;" not "payFineUI ui;"
 	//version 3.0 clas name first letter must be capital , it should be PayFineUI not payFineUI
 	private enum CONTROL_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
@@ -12,7 +13,7 @@ public class PayFineControl {
 	private Member memberName;
 	//version 2.0 class Name "Member" not "member" starts with capital letter - The file loan.java must be updated to reflect this fact
 	//version 2.0 -use meaningful name ,camelBack so "Member memberName;" not "Member member;"
-	public PayFineControl() {
+	public PayFineControl() { 
 		this.libraryName = libraryName.INSTANCE();//version 2.0 Variable name must be meaningful - camelBack style
 		stateCon = CONTROL_STATE.INITIALISED; //version 3.0 -use meaningful name ,camelBack so "CONTROL_STATE stateCon;" not "CONTROL_STATE state;"
 	}
