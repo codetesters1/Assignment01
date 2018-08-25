@@ -1,6 +1,6 @@
 public class FixBookControl {
 	
-	private FixBookUserInterface ui; //Variable name should start by lowercase letter and use camelCase
+	private FixBookUI userInterface; //Variable name should start by lowercase letter, use camelCase and should be meaningful
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
 	private CONTROL_STATE state;
 	
@@ -14,13 +14,13 @@ public class FixBookControl {
 	}
 	
 	
-	public void setUI(FixBookUserInterface ui) {
+	public void setUI(FixBookUI userInterface) {
 		if (!state.equals(CONTROL_STATE.INITIALISED)) {
 			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
 		}	
-		this.ui = ui;
-		ui.setState(FixBookUserInterface.UI_STATE.READY);
-		state = CONTROL_STATE.READY;		
+		this.userInterface = userInterface;
+		userInterface.setState(FixBookUI.UI_STATE.READY);
+		state = CONTROL_STATE.READY;	
 	}
 
 
@@ -39,7 +39,7 @@ public class FixBookControl {
 			return;
 		}
 		ui.display(currentBook.toString());
-		ui.setState(FixBookUserInterface.UI_STATE.FIXING);
+		ui.setState(FixBookUI.UI_STATE.FIXING);
 		state = CONTROL_STATE.FIXING;		
 	}
 
@@ -52,7 +52,7 @@ public class FixBookControl {
 			library.repairBook(currentBook);
 		}
 		currentBook = null;
-		ui.setState(FixBookUserInterface.UI_STATE.READY);
+		ui.setState(FixBookUI.UI_STATE.READY);
 		state = CONTROL_STATE.READY;		
 	}
 
@@ -61,7 +61,7 @@ public class FixBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
-		ui.setState(FixBookUserInterface.UI_STATE.COMPLETED);		
+		ui.setState(FixBookUI.UI_STATE.COMPLETED);		
 	}
 
 

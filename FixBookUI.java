@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class FixBookUserInterface { //Class, variable, and method names should not use abbreviations, except for common acronyms
+public class FixBookUI { 
 
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
@@ -10,7 +10,7 @@ public class FixBookUserInterface { //Class, variable, and method names should n
 	private UI_STATE state;
 
 	
-	public FixBookUserInterface(FixBookControl control) {
+	public FixBookUI(FixBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;

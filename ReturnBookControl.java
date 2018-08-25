@@ -4,17 +4,26 @@ public class ReturnBookControl {
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE state;
 	
-	private library library;
-	private loan currentLoan;
+	private Library Library;
+	// "Library library" not "library library" as the class type must start with capital letter
+	//class Name "Library" not "library" starts with capital letter - The file library.java must be updated to reflect this fact
+	private Loan currentLoan;
+	// "Loan currentLoan" not "loan currentLoan" as the class type must start with capital letter
+	//class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
 	
 
-	public ReturnBookControl() {
-		this.library = library.INSTANCE();
+	public ReturnBookControl() { 
+	/*returnBookControl not "ReturnBookControl" as method starts with small letter 
+	- it is verb and in useCamelBack style*/ 
+		this.library = library.getInstance();
+		//"library.getInstance()" not "library.INSTANCE()" 
+		//as the method that returns their sole instance is "getInstanse" 
+		//it's verb in useCamelBack style
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
 	
-	public void setUI(ReturnBookUI ui) {
+	public void setUI(ReturnBookUI ui) { 
 		if (!state.equals(CONTROL_STATE.INITIALISED)) {
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		}	
@@ -28,13 +37,18 @@ public class ReturnBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		}	
-		book currentBook = library.Book(bookId);
-		
+		Book currentBook = library.Book(bookId);
+		//"Book currentBook" rather than "book currentBook"
+		//as the class name must starts with small letter and be verb in useCamelBack style
+		//book.java must be updated to reflect this naming convention
 		if (currentBook == null) {
 			ui.display("Invalid Book Id");
 			return;
 		}
-		if (!currentBook.On_loan()) {
+		if (!currentBook.isLoaned())) {
+			/* "currentBook.isLoaned()" not "currentBook.On_loan()"
+			the method name must be verb and useCamelBack style 
+			*/
 			ui.display("Book has not been borrowed");
 			return;
 		}		

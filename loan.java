@@ -3,38 +3,39 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class loan implements Serializable {// class name: "Loan" not "loan" must start with capital letter
+public class Loan implements Serializable {// class name: "Loan" not "loan" must start with capital letter
 	
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
-	private int ID;// variable name : "myId;" not "ID;" - all uppercase is used for constants only
-	private book B;
+	private int myId;// variable name : "myId;" not "ID;" - all uppercase is used for constants only
+	private Book myBook;
 	// use meaningful name ,camelBack so "Book myBook;" not "book B;"
 	//class Name "Book" not "book" starts with capital letter - The file book.java must be updated to reflect this fact 
-	private member M;
+	private Member myMember;
 	// use meaningful name ,camelBack so "Member myMember;" not "member M;"
 	//class Name "Member" not "member" starts with capital letter - The file member.java must be updated to reflect this fact
-	private Date D;  
+	private Date myDueDate;  
 	// use meaningful name ,camelBack so "Date myDueDate;" not "Date D;"
 	private LOAN_STATE state;
 
 	
-	public loan(int loanId, book book, member member, Date dueDate) {
-	//	public Loan(int loanId, Book book, Member member, Date dueDate) {
+	public Loan(int loanId, Book book, Member member, Date dueDate) {
+	
 	// constructor is the same class name - starts with capital letter 
 	// each argument of a class type - the type is also must start with capital letter camelBack
-		this.ID = loanId;//this.myId    =loanID;    /* Variable name must be meaningful - camelBack style*/
-		this.B = book;   //this.myBook  =book;		/* Variable name must be meaningful - camelBack style*/
-		this.M = member; //this.myMember=member;	/* Variable name must be meaningful - camelBack style*/
-		this.D = dueDate;//this.myDueDate=dueDate;	/* Variable name must be meaningful - camelBack style*/
+        
+		this.myId    =loanID;// Variable name must be meaningful - camelBack style
+		this.myBook  =book;   // Variable name must be meaningful - camelBack style
+		this.myMember=member; //Variable name must be meaningful - camelBack style
+		this.myDueDate=dueDate;//Variable name must be meaningful - camelBack style
 		this.state = LOAN_STATE.CURRENT;
 	}
 
 	
 	public void checkOverDue() {
 		if (state == LOAN_STATE.CURRENT &&
-			Calendar.getInstance().Date().after(D)) {
+			Calendar.getInstance().Date().after(myDueDate))) {
 	//"Calendar.getInstance().Date().after(myDueDate)" rather "Calendar.getInstance().Date().after(D)"
 			this.state = LOAN_STATE.OVER_DUE;			
 		}
@@ -52,12 +53,12 @@ public class loan implements Serializable {// class name: "Loan" not "loan" must
 
 	
 	public Integer getId() {
-		return ID;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
+		return this.myId;//"return this.myId;" not "return ID;"/* Variable name must be meaningful - camelBack style*/
 	}
 
 
 	public Date getDueDate() {
-		return D;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
+		return this.myDueDate;//"return this.myDueDate" not "return D;"/* Variable name must be meaningful - camelBack style*/
 	}
 	
 	
