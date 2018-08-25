@@ -1,6 +1,7 @@
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+// checked by Moderator
 public class Calendar {
 	
 	private static Calendar self;
