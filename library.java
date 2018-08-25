@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class library implements Serializable {
+public class Library implements Serializable { //changed class name's first letter to uppercase
 	
 	private static final String libraryFile = "library.obj";
 	private static final int loanLimit = 2;
