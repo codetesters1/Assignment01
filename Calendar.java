@@ -1,6 +1,7 @@
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+// checked by Moderator
 public class Calendar {
 	
 	private static Calendar self;
@@ -15,7 +16,7 @@ public class Calendar {
 		if (self == null) {
 			self = new Calendar();
 		}
-		return self; // COMMENT
+		return self; 
 	}
 	
 	public void incrementDate(int days) {
