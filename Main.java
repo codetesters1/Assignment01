@@ -141,7 +141,7 @@ public class Main {
 
 
 
-	private static void listBooks() {
+	private static void LidtBook() { //changed variable name 
 		output("");
 		for (book book : lib.Books()) {//Changed the variable name from lib to lib
 			output(book + "\n");
