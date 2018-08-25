@@ -22,20 +22,20 @@ public class Library implements Serializable { //changed class name's first lett
 	private static final double macFinesOwned = 5.0;
 	private static final double damageFee = 2.0;
 	
-	private static library self;
+	private static Library self;// updated by reviewer - Class name from library to Library
 	private int bookId;
 	private int memberId;
 	private int loanId;
 	private Date loadDate;
 	
-	private Map<Integer, book> catalog;
-	private Map<Integer, member> members;
-	private Map<Integer, loan> loans;
-	private Map<Integer, loan> currentLoans;
-	private Map<Integer, book> damagedBooks;
-	
+	private Map<Integer, Book> catalog;
+	private Map<Integer, Member> members;
+	private Map<Integer, Loan> loans;
+	private Map<Integer, Loan> currentLoans;
+	private Map<Integer, Book> damagedBooks;
+	//Updated by reviewer-Dushan - above class names should be updated with first letter Capital
 
-	private library() {
+	private Library() { //Updated by reviewer- Class name constructor must be Library not library
 		catalog = new HashMap<>();
 		members = new HashMap<>();
 		loans = new HashMap<>();
@@ -47,7 +47,7 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 	
-	public static synchronized library INSTANCE() {		
+	public static synchronized Library INSTANCE() {		//updated by reviewer library to Library
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
@@ -67,7 +67,8 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 	
-	public static synchronized void save() { //changed method name to meet guidelines
+	public static synchronized void saveLibrary() { //changed method name to meet guidelines
+		//updated by reviewer- method name from save to saveLibrary
 		if (self != null) {
 			self.loadDate = Calendar.getInstance().Date();
 			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
@@ -107,43 +108,46 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 	
-	public List<member> members() {	//changed method name to meet guidelines	
-		return new ArrayList<member>(members.values()); 
+	public List<Member> listMembers() {	//changed method name to meet guidelines	
+		//changed by reviewer- class name Member
+		return new ArrayList<Member>(members.values()); 
 	}
 
 
-	public List<book> books() {	//changed method name to meet guidelines	
-		return new ArrayList<book>(catalog.values()); 
+	public List<Book> listBooks() {	//changed method name to meet guidelines
+		//changed by reviewer- class name Book
+		return new ArrayList<Book>(catalog.values()); 
 	}
 
 
-	public List<loan> currentLoans() { //changed method name to meet guidelines
-		return new ArrayList<loan>(currentLoans.values());
+	public List<Loan> currentLoans() { //changed method name to meet guidelines
+		return new ArrayList<Loan>(currentLoans.values());
 	}
 
 
 	public member addItem(String lastName, String firstName, String email, int phoneNo) {	//changed method name to meet guidelines	
-		member member = new member(lastName, firstName, email, phoneNo, nextMemberId());
-		members.put(member.getId(), member);		
+		Member newMember = new Member(lastName, firstName, email, phoneNo, nextMemberId());
+		//updated by reviewer - Class name from member to Member
+		newMember.put(newMember.getId(), newMember);		
 		return member;
 	}
 
 	
-	public book addBook(String a, String t, String c) {	//changed method name to meet guidelines	
-		book b = new book(a, t, c, nextBookId());
-		catalog.put(b.ID(), b);		
-		return b;
+	public book addBook(String bookOne, String bookTwo, String bookThree) {	//changed method name to meet guidelines	
+		Book newBook = new book(bookOne, bookTwo, bookThree, nextBookId());//updated by reviewer -variables from a,t,c to bookOne,bookTwo,bookThree
+		catalog.put(newBook.ID(), newBook);		
+		return newBook;
 	}
 
 	
-	public member getMember(int memberId) {
+	public Member getMember(int memberId) {
 		if (members.containsKey(memberId)) 
 			return members.get(memberId);
 		return null;
 	}
 
 	
-	public book book(int bookId) { //changed first letter to lowercase
+	public Book book(int bookId) { //changed first letter to lowercase
 		if (catalog.containsKey(bookId)) 
 			return catalog.get(bookId);		
 		return null;
@@ -155,7 +159,7 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 	
-	public boolean memberCanBorrow(member member) {		
+	public boolean memberCanBorrow(Member member) {		//updated by reviewer -chaged from member to Member
 		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ) 
 			return false;
 				
@@ -223,13 +227,13 @@ public class Library implements Serializable { //changed class name's first lett
 
 
 	public void checkCurrentLoans() {
-		for (loan loan : currentLoans.values()) {
+		for (Loan loan : currentLoans.values()) { //updated by reviewer from loan to Loan
 			loan.checkOverDue();
 		}		
 	}
 
 
-	public void repairBook(book currentBook) {
+	public void repairBook(Book currentBook) { //updated by reviewer book to Book
 		if (damagedBooks.containsKey(currentBook.ID())) {
 			currentBook.Repair();
 			damagedBooks.remove(currentBook.ID());
