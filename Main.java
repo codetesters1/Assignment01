@@ -103,7 +103,7 @@ public class Main {
 					break;
 					
 				case "Q": 
-					e = true;
+					exitMenu = true; //changed variable name
 					break;
 					
 				default: 
