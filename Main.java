@@ -59,8 +59,7 @@ public class Main {
 			while (!e) {
 				
 				output("\n" + SDF.format(calendar.Date()));//changed the variable name CAL to calendar
-				String c = input(MENU);
-				
+				String c = input(menu);//variable name change				
 				switch (c.toUpperCase()) {
 				
 				case "M": 
