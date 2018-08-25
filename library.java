@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class library implements Serializable {
+public class Library implements Serializable { //changed class name's first letter to uppercase
 	
-	private static final String LIBRARY_FILE = "library.obj";
-	private static final int LOAN_LIMIT = 2;
-	private static final int LOAN_PERIOD = 2;
-	private static final double FINE_PER_DAY = 1.0;
-	private static final double MAX_FINES_OWED = 5.0;
-	private static final double DAMAGE_FEE = 2.0;
+	private static final String libraryFile = "library.obj";
+	private static final int loanLimit = 2;
+	private static final int loanPeriod = 2;
+	private static final double finePerDay = 1.0;
+	private static final double macFinesOwned = 5.0;
+	private static final double damageFee = 2.0;
 	
 	private static library self;
 	private int BID;
