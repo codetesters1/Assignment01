@@ -11,7 +11,7 @@ public class Main {
 	private static SimpleDateFormat simpleDataFormat; //changed the variable name SDF to simpleDataFormat
 	
 	
-	private static String Get_menu() {
+	private static String GetMenu() { //changed class name from 'Get_menu' to GetMenu
 		StringBuilder strBuilder = new StringBuilder(); //changed variable 'sb' to 'strBuilder'
 		
 		strBuilder.append("\nLibrary Main Menu\n\n") //changed variable 'sb' to 'strBuilder'
