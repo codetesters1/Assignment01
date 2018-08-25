@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//Documentor Checked
+//Author Hijas
 public class BorrowBookUI {
 	
 	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
