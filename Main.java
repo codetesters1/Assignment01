@@ -52,7 +52,7 @@ public class Main {
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			menu = Get_menu(); //Changed variable neme from MENU to menu
 			
 			boolean e = false;
 			
