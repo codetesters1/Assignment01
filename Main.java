@@ -120,7 +120,7 @@ public class Main {
 	}	
 
 	
-	private static void payFine() {
+	private static void PayFine() { //changed variable name 'payFine' to 'PayFine'
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
