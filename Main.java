@@ -59,8 +59,8 @@ public class Main {
 			while (!exitMenu) { //changed variable name
 				
 				output("\n" + simpleDataFormat.format(calendar.Date()));//changed the variable name CAL to calendar
-				String c = input(menu);//variable name change				
-				switch (c.toUpperCase()) {
+				String choice = input(menu);//variable name change			
+				switch (choice.toUpperCase()) { //changed variable name c to choice
 				
 				case "M": 
 					addMember();
