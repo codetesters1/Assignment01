@@ -44,7 +44,7 @@ public class Main {
 			calendar = Calendar.getInstance(); //changed the variable name CAL to calendar
 			simpleDataFormat = new SimpleDateFormat("dd/MM/yyyy");//changed variable name
 	
-			for (member m : lib.Members()) {//Changed the variable name from lib to lib
+			for (member member : lib.Members()) {//Changed the variable name from lib to lib and m to member
 				output(m);
 			}
 			output(" ");
