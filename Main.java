@@ -202,7 +202,7 @@ public class Main {
 	}
 
 	
-	private static void AddMember() {
+	private static void addMember() {
 		try {
 			String lastName = input("Enter last name: ");
 			String firstName  = input("Enter first name: ");
