@@ -95,7 +95,7 @@ public class Main {
 					break;
 					
 				case "P": 
-					payFine();
+					PayFine();
 					break;
 					
 				case "T": 
