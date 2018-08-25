@@ -154,7 +154,7 @@ public class Main {
 
 
 
-	private static void ListMembers() {
+	private static void listMembers() {
 		output("");
 		for (member member : lib.Members()) {//Changed the variable name from lib to lib
 			output(member + "\n");
@@ -163,22 +163,22 @@ public class Main {
 
 
 
-	private static void BorrowBook() {
+	private static void borrowBook() {
 		new BorrowBookUI(new BorrowBookControl()).run();		
 	}
 
 
-	private static void ReturnBook() {
+	private static void feturnBook() {
 		new ReturnBookUI(new ReturnBookControl()).run();		
 	}
 
 
-	private static void FixBooks() {
+	private static void fixBooks() {
 		new FixBookUI(new FixBookControl()).run();		
 	}
 
 
-	private static void IncrementDate() {
+	private static void incrementDate() {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			calendar.incrementDate(days);//changed the variable name CAL to calendar
@@ -191,7 +191,7 @@ public class Main {
 	}
 
 
-	private static void AddBook() {
+	private static void addBook() {
 		
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
