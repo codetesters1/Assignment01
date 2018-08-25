@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-
+// checked by Documentor
 public class ReturnBookUI {
 
 	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
