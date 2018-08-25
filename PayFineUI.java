@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-
+// checked by Facilitator
 public class PayFineUI {
 
 
