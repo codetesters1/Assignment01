@@ -27,7 +27,7 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 	// constructor is the same class name - starts with capital letter 
 	// each argument of a class type - the type is also must start with capital letter camelBack
         
-		this.myId    =loanID;// Variable name must be meaningful - camelBack style - reviewed OK
+		this.myId    =loanId;// updated by reviewer (Waqas)loadnID to loanId - Variable name must be meaningful - camelBack style - reviewed OK
 		this.myBook  =book;   // Variable name must be meaningful - camelBack style - reviewed OK
 		this.myMember=member; //Variable name must be meaningful - camelBack style - reviewed OK
 		this.myDueDate=dueDate;//Variable name must be meaningful - camelBack style - reviewed OK
@@ -65,17 +65,17 @@ public class Loan implements Serializable {// class name: "Loan" not "loan" must
 	
 	
 	public String toString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dayMonthYear = new SimpleDateFormat("dd/MM/yyyy"); //update by reviewer (Waqas)- variable name should be meaningful "sdf" to dayMonthYear
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(ID).append("\n")
+		StringBuilder stringBuilder = new StringBuilder(); //update by reviewer (Waqas)- variable name should be meaningful "sb" to stringBuilder
+		stringBuilder.append("Loan:  ").append(ID).append("\n") //update by reviewer (Waqas)- variable name should be meaningful "sb" to stringBuilder
 		  .append("  Borrower ").append(M.getId()).append(" : ")
 		  .append(M.getLastName()).append(", ").append(M.getFirstName()).append("\n")
 		  .append("  Book ").append(B.ID()).append(" : " )
 		  .append(B.Title()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
+		  .append("  DueDate: ").append(dayMonthYear.format(D)).append("\n")
 		  .append("  State: ").append(state);		
-		return sb.toString();
+		return stringBuilder.toString(); //update by reviewer (Waqas)- variable name should be meaningful "sb" to stringBuilder
 	}
 
 
