@@ -4,6 +4,7 @@ import java.util.Scanner;
 // checked by Moderator
 //Updated by reviewer-Dushan
 //Checked by Facilitatorr - Bhanuka
+//Checked by Documenter - Waqas
 
 public class Main {
 	
