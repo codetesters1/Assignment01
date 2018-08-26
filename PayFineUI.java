@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 // Checked by Facilitator
+//Checked by Moderator - Bhanuka
 public class PayFineUI {
 
 
