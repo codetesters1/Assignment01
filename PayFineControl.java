@@ -1,5 +1,6 @@
 public class PayFineControl {
 	// checked by Facilitator
+	//Checked by Moderator - Bhanuka
 	private PayFineUI uiName;
 	//version 2.0 -use meaningful name ,camelBack so "payFineUI uiName;" not "payFineUI ui;"
 	//version 3.0 clas name first letter must be capital , it should be PayFineUI not payFineUI

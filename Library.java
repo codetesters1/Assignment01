@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//CHecked by Facilitator - Bhanuka
+
 @SuppressWarnings("serial")
 public class Library implements Serializable { //changed class name's first letter to uppercase
 	
@@ -28,7 +30,7 @@ public class Library implements Serializable { //changed class name's first lett
 	private int loanId;
 	private Date loadDate;
 	
-	private Map<Integer, Book> catalog;
+	private Map<Integer, Book> bookCatalog; // updated by Moderator (Hijas Ahamed)replaced a meaningful variable name to meet the guidelines as bookCatalog 
 	private Map<Integer, Member> members;
 	private Map<Integer, Loan> loans;
 	private Map<Integer, Loan> currentLoans;
@@ -36,7 +38,7 @@ public class Library implements Serializable { //changed class name's first lett
 	//Updated by reviewer-Dushan - above class names should be updated with first letter Capital
 
 	private Library() { //Updated by reviewer- Class name constructor must be Library not library
-		catalog = new HashMap<>();
+		bookCatalog = new HashMap<>(); // updated by Moderator (Hijas Ahamed)replaced a meaningful variable name to meet the meaningful guidelines as bookCatalog 
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();

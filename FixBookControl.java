@@ -1,5 +1,8 @@
 public class FixBookControl {
+// Author by Waqas
 // checked by Moderator
+//Checked by Documenter - Bhanuka
+	
 	private FixBookUI userInterface; //Variable name should start by lowercase letter, use camelCase and should be meaningful
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
 	private CONTROL_STATE stateCon;//updated by reviewer(Dushan) - state to stateCon - use camelback for variables

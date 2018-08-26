@@ -1,8 +1,9 @@
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
+// Author by Waqas
 // checked by Moderator
 //Checked by Reviewer-Dushan
+//CHecked by Documenter - Bhanuka
 public class Calendar {
 	
 	private static Calendar selfCal; //updated by reviewer- self to selfCal

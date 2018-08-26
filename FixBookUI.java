@@ -1,6 +1,8 @@
 import java.util.Scanner;
+// Author by Waqas
 // checked by Moderator
 //Updated by Reviewer-Dushan
+//Checked by Documenter - Bhanuka
 
 public class FixBookUI { 
 
