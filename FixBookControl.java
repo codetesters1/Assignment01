@@ -1,26 +1,30 @@
 public class FixBookControl {
-	
-	private FixBookUI ui;
+// checked by Moderator
+	private FixBookUI userInterface; //Variable name should start by lowercase letter, use camelCase and should be meaningful
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
-	private CONTROL_STATE state;
+	private CONTROL_STATE stateCon;//updated by reviewer(Dushan) - state to stateCon - use camelback for variables
 	
-	private library library;
-	private book currentBook;
+	private Library libraryFixBook;   //Class name should start with Capital Letter
+	//updated by reviewer(Dushan) - library to libraryFixBook
+	private Book currentBook; //Class name should start with Capital Letter
 
 
 	public FixBookControl() {
-		this.library = library.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+		this.libraryFixBook = libraryFixBook.INSTANCE(); //updated by reviewer(Dushan) - library to libraryFixBook
+		stateCon = CONTROL_STATE.INITIALISED; //updated by reviewer(Dushan) - state to stateCon - use camelback for variables
+	
 	}
 	
 	
-	public void setUI(FixBookUI ui) {
-		if (!state.equals(CONTROL_STATE.INITIALISED)) {
+	public void setUI(FixBookUI userInterface) {
+		if (!stateCon.equals(CONTROL_STATE.INITIALISED)) { //updated by reviewer(Dushan) - state to stateCon - use camelback for variables
+	
 			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
 		}	
-		this.ui = ui;
-		ui.setState(FixBookUI.UI_STATE.READY);
-		state = CONTROL_STATE.READY;		
+		this.userInterface = userInterface;
+		userInterface.setState(FixBookUI.UI_STATE.READY);
+		stateCon = CONTROL_STATE.READY;	 //updated by reviewer(Dushan) - state to stateCon - use camelback for variables
+	
 	}
 
 
@@ -28,40 +32,40 @@ public class FixBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call bookScanned except in READY state");
 		}	
-		currentBook = library.Book(bookId);
+		currentBook = libraryFixBook.Book(bookId); //updated by reviewer(Dushan) - library to libraryFixBook
 		
 		if (currentBook == null) {
-			ui.display("Invalid bookId");
+			userInterface.displayFixBook("Invalid bookId"); //updated by reviewer(Dushan) - method name must change to displaFixBook in FixBookUI.java
 			return;
 		}
-		if (!currentBook.Damaged()) {
-			ui.display("\"Book has not been damaged");
+		if (!currentBook.isDamaged()) { //updated by reviewer(Dushan) - method name must change to isDamaged in Book.java
+			userInterface.displayFixBook("\"Book has not been damaged"); //updated by reviewer(Dushan) - method name must change to displaFixBook in FixBookUI.java
 			return;
 		}
-		ui.display(currentBook.toString());
-		ui.setState(FixBookUI.UI_STATE.FIXING);
-		state = CONTROL_STATE.FIXING;		
+		userInterface.displayFixBook(currentBook.toString()); //updated by reviewer(Dushan) - method name must change to displaFixBook in FixBookUI.java
+		userInterface.setState(FixBookUI.UI_STATE.FIXING);
+		stateCon = CONTROL_STATE.FIXING; //updated by reviewer(Dushan) - state changed to stateCon		
 	}
 
 
 	public void fixBook(boolean fix) {
-		if (!state.equals(CONTROL_STATE.FIXING)) {
+		if (!stateCon.equals(CONTROL_STATE.FIXING)) {
 			throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
 		}	
 		if (fix) {
-			library.repairBook(currentBook);
+			libraryFixBook.repairBook(currentBook); //updated by reviewer(Dushan) - library to libraryFixBook
 		}
 		currentBook = null;
-		ui.setState(FixBookUI.UI_STATE.READY);
-		state = CONTROL_STATE.READY;		
+		userInterface.setState(FixBookUI.UI_STATE.READY);
+		stateCon = CONTROL_STATE.READY;	//updated by reviewer(Dushan) - state to stateCon	
 	}
 
 	
 	public void scanningComplete() {
-		if (!state.equals(CONTROL_STATE.READY)) {
+		if (!stateCon.equals(CONTROL_STATE.READY)) { //updated by reviewer(Dushan) - state to stateCon	
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
-		ui.setState(FixBookUI.UI_STATE.COMPLETED);		
+		userInterface.setState(FixBookUI.UI_STATE.COMPLETED);		
 	}
 
 
