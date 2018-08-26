@@ -9,8 +9,10 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Book implements Serializable {   // version_1.00 changed class name first letter into capital
 	
-	private String title;   // version_1.01 T replaced to tilte
-	private String author;  // version_1.02 A replaced to author
+	private String bookTitle;   // version_1.01 T replaced to tilte
+	//title changed to 'bookTitle' camelBack style -Updated by reviewer 
+	private String bookAuthor;  // version_1.02 A replaced to author
+	// changed to 'bookAuthor' camelBack style -Updated by reviewer
 	private String callNo;  // version_1.03 C replaced to callNo
 	private int bookId;     // version_1.04 ID replaced to bookId
 	
@@ -18,9 +20,11 @@ public class Book implements Serializable {   // version_1.00 changed class name
 	private STATE state;
 	
 	
-	public Book(String author, String title, String callNo, int id) { //changed class name first letter into capital
-		this.author = author;   // version_1.05 A replaced to author
-		this.title= title;      // version_1.06 T replaced to tilte
+	public Book(String bookAuthor, String bookTitle, String callNo, int id) { //changed class name first letter into capital
+		this.bookAuthor = bookAuthor;   // version_1.05 A replaced to author
+		// changed to 'bookAuthor' camelBack style -Updated by reviewer
+		this.bookTitle= bookTitle;      // version_1.06 T replaced to tilte
+		//title changed to 'bookTitle' camelBack style -Updated by reviewer
 		this.callNo = callNo;   // version_1.07 C replaced to callNo
 		this.bookId = id;       // version_1.08 ID replaced to bookId
 		this.state = STATE.AVAILABLE;
@@ -42,11 +46,12 @@ public class Book implements Serializable {   // version_1.00 changed class name
 	}
 
 	public String getTitle() { // method name Title replaced to gETtITLE 
-		return title;       // version_1.15 T replaced to tilte
+		return bookTitle;       // version_1.15 T replaced to tilte
+		//title changed to 'bookTitle' camelBack style -Updated by reviewer
 	}
 	
 	public Integer getAuthor() {   //Updated by Moderator -Dushan -singletons must have get instance
-		return author;     
+		return bookAuthor;     // changed to 'bookAuthor' camelBack style -Updated by reviewer
 	}
 	
 	public Integer getCallNo() {   //Updated by Moderator -Dushan -singletons must have get instance
