@@ -1,66 +1,69 @@
 import java.util.Scanner;
-
+// checked by Moderator
+//Updated by Reviewer-Dushan
+//Checked by Documenter - Bhanuka
 
 public class FixBookUI { 
 
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
-	private FixBookControl control;
-	private Scanner input;
-	private UI_STATE state;
+	private FixBookControl controlBook;//updated by reviewer - control to controlBook -must be meaningful
+	private Scanner inputScanner; //updated by reviewer Dushan- input to inputScanner
+	private UI_STATE stateUi;//updated by reviewer Dushan- state to stateUi
 
 	
-	public FixBookUI(FixBookControl control) {
-		this.control = control;
-		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+	public FixBookUI(FixBookControl controlBook) { //updated by reviewer - control to controlBook -must be meaningful
+		this.controlBook = controlBook; //updated by reviewer - control to controlBook -must be meaningful
+		inputScanner = new Scanner(System.in); //updated by reviewer Dushan- input to inputScanner
+		stateUi = UI_STATE.INITIALISED; //updated by reviewer Dushan- state to stateUi
+		controlBook.setUI(this);//updated by reviewer - control to controlBook -must be meaningful
 	}
 
 
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setState(UI_STATE stateUi) {
+		this.stateUi = stateUi;//updated by reviewer Dushan- state to stateUi
 	}
 
 	
-	public void run() {
-		output("Fix Book Use Case UI\n");
+	public void runFixBook() { //updated by reviewer Dushan- method name must be meaningful and camelBack style
+		outputFixBook("Fix Book Use Case UI\n");
 		
 		while (true) {
 			
-			switch (state) {
+			switch (stateUi) { //updated by reviewer Dushan- state to stateUi
 			
 			case READY:
-				String bookString = input("Scan Book (<enter> completes): "); //Variable name should be meaningful and should not be abbreviations
+				String bookString = inputScanner("Scan Book (<enter> completes): "); //Variable name should be meaningful and should not be abbreviations
 				if (bookString.length() == 0) {
-					control.scanningComplete();
+					controlBook.scanningComplete(); //updated by reviewer Dushan
 				}
 				else {
 					try {
 						int bookId = Integer.valueOf(bookString).intValue();
-						control.bookScanned(bookId);
+						controlBook.bookScanned(bookId); //updated by reviewer Dushan
 					}
 					catch (NumberFormatException e) {
-						output("Invalid bookId");
+						outputFixBook("Invalid bookId"); //updated by reviewer Dushan
 					}
 				}
 				break;	
 				
 			case FIXING:
-				String answer = input("Fix Book? (Y/N) : "); //Variable name should be meaningful
+				String answer = inputScanner("Fix Book? (Y/N) : "); //Variable name should be meaningful
+					//updated by reviewer Dushan
 				boolean fix = false;
 				if (answer.toUpperCase().equals("Y")) {
 					fix = true;
 				}
-				control.fixBook(fix);
+				controlBook.fixBook(fix);
 				break;
 								
 			case COMPLETED:
-				output("Fixing process complete");
+				outputFixBook("Fixing process complete");
 				return;
 			
 			default:
-				output("Unhandled state");
+				outputFixBook("Unhandled state");
 				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
 			
 			}		
@@ -69,19 +72,19 @@ public class FixBookUI {
 	}
 
 	
-	private String input(String prompt) {
+	private String inputFixBook(String prompt) {
 		System.out.print(prompt);
-		return input.nextLine();
+		return inputScanner.nextLine();
 	}	
 		
 		
-	private void output(Object object) {
+	private void outputFixBook(Object object) {
 		System.out.println(object);
 	}
 	
 
-	public void display(Object object) {
-		output(object);
+	public void displayFixBook(Object object) {
+		outputFixBook(object);
 	}
 	
 	
