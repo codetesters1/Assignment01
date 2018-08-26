@@ -128,7 +128,8 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 
-	public member addItem(String lastName, String firstName, String email, int phoneNo) {	//changed method name to meet guidelines	
+	public Member addItem(String lastName, String firstName, String email, int phoneNo) {	//changed method name to meet guidelines	
+		//Should be Member - class name starts with a capital - Edited by facilitator
 		Member newMember = new Member(lastName, firstName, email, phoneNo, nextMemberId());
 		//updated by reviewer - Class name from member to Member
 		newMember.put(newMember.getId(), newMember);		
@@ -136,7 +137,8 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 	
-	public book addBook(String bookOne, String bookTwo, String bookThree) {	//changed method name to meet guidelines	
+	public Book addBook(String bookOne, String bookTwo, String bookThree) {	//changed method name to meet guidelines
+		//Should be Book - class name starts with a capital - Edited by facilitator
 		Book newBook = new book(bookOne, bookTwo, bookThree, nextBookId());//updated by reviewer -variables from a,t,c to bookOne,bookTwo,bookThree
 		catalog.put(newBook.ID(), newBook);		
 		return newBook;
@@ -182,7 +184,8 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 
 	
-	public loan issueLoan(book book, member member) {
+	public Loan issueLoan(book book, member member)
+	//Should be Loan - class name starts with a capital - Edited by facilitator{
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
 		loan loan = new loan(nextLID(), book, member, dueDate);
 		member.takeOutLoan(loan);
@@ -193,7 +196,8 @@ public class Library implements Serializable { //changed class name's first lett
 	}
 	
 	
-	public loan getLoanByBookId(int bookId) {
+	public Loan getLoanByBookId(int bookId)
+	//Should be Loan - class name starts with a capital - Edited by facilitator{
 		if (currentLoans.containsKey(bookId)) {
 			return currentLoans.get(bookId);
 		}
