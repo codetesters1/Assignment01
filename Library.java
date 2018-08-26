@@ -30,7 +30,7 @@ public class Library implements Serializable { //changed class name's first lett
 	private int loanId;
 	private Date loadDate;
 	
-	private Map<Integer, Book> catalog;
+	private Map<Integer, Book> bookCatalog; // Modetared by Moderator (Hijas)replaced a meaningful variable name as bookCatalog 
 	private Map<Integer, Member> members;
 	private Map<Integer, Loan> loans;
 	private Map<Integer, Loan> currentLoans;
@@ -38,7 +38,7 @@ public class Library implements Serializable { //changed class name's first lett
 	//Updated by reviewer-Dushan - above class names should be updated with first letter Capital
 
 	private Library() { //Updated by reviewer- Class name constructor must be Library not library
-		catalog = new HashMap<>();
+		bookCatalog = new HashMap<>(); // Modetared by Moderator (Hijas)replaced a meaningful variable name as bookCatalog 
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
