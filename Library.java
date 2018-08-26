@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 //CHecked by Facilitator - Bhanuka
+//Checked by Documenter - Waqas
 
 @SuppressWarnings("serial")
 public class Library implements Serializable { //changed class name's first letter to uppercase
