@@ -33,7 +33,7 @@ public class BorrowBookControl {
 	}
 
 		
-	public void swiped(int memberId) {  // version 1.04 the method name Swiped replaced to swiped due to lowerCamelCase 
+	public void swiped(int memberId) {  // updated by Hijas(author)version 1.04 the method name Swiped replaced to swiped due to lowerCamelCase 
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
@@ -52,7 +52,7 @@ public class BorrowBookControl {
 			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
 	
 	
-	public void scanned(int bookId) { // version 1.07 the method name first letter of the Scanned replaced to scanned due to lowerCamelCase 
+	public void scanned(int bookId) { // updted by hijas (author)version 1.07 the method name first letter of the Scanned replaced to scanned due to lowerCamelCase 
 		book= null; // // version 1.08 variable name B replaced to Book
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
