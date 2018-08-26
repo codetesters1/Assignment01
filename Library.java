@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//CHecked by Facilitator - Bhanuka
+
 @SuppressWarnings("serial")
 public class Library implements Serializable { //changed class name's first letter to uppercase
 	
