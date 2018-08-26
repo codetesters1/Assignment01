@@ -1,7 +1,7 @@
 public class ReturnBookControl {
 	//Author - Bhanuka 
 // checked by Documentor
-	//Reviewed by Dushan
+	//Reviewed by Waqas
 	//Updated by moderator
 	private ReturnBookUI uiBook; //updated by moderator Dushan- camelBack style - ui to uiBook
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
