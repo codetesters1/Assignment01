@@ -19,7 +19,7 @@ public class Member implements Serializable { //version 3.0 - class name: "Membe
 	//version 2.0 -class Name "Loan" not "loan" starts with capital letter - The file loan.java must be updated to reflect this fact
 	
 	public Member(String lastName, String firstName, String eMail, int phoneNo, int idNo) { // version 1.0 changed variables acoordingly, email-eMail, id-idNo
-		//Should be Member - Class starts with capital - Edited by Moderator
+		//Should be Member - Class starts with capital - Edited by Moderator (Bhanuka)
 		this.lastName = lastName;//version 1.0 Variable name must be meaningful - camelBack style
 		this.firstName = firstName;//version 1.0 Variable name must be meaningful - camelBack style
 		this.eMail = eMail;//version 1.0 Variable name must be meaningful - camelBack style
