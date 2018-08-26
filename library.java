@@ -28,7 +28,7 @@ public class Library implements Serializable { //changed class name's first lett
 	private int loanId;
 	private Date loadDate;
 	
-	private Map<Integer, book> bookCatalog; // moderated by moderator (Hijas) gave a meaningful word to meet the guidelines
+	private Map<Integer, book> catalog; 
 	private Map<Integer, member> members;
 	private Map<Integer, loan> loans;
 	private Map<Integer, loan> currentLoans;
@@ -36,7 +36,7 @@ public class Library implements Serializable { //changed class name's first lett
 	
 
 	private library() {
-		bookCatalog = new HashMap<>(); // moderated by moderator (Hijas) gave a meaningful word to meet the guidelines
+		catalog = new HashMap<>(); // moderated by moderator (Hijas) gave a meaningful word to meet the guidelines
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
