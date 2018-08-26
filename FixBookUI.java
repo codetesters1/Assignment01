@@ -9,7 +9,7 @@ public class FixBookUI {
 	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
 	private FixBookControl controlBook;//updated by reviewer - control to controlBook -must be meaningful
-	private Scanner inputScanner; //updated by reviewer Dushan- input to inputScanner
+	private Scanner inputScanner; //commented by Author (WAQAS) version 4.0 final vairable update - updated by reviewer Dushan- input to inputScanner
 	private UI_STATE stateUi;//updated by reviewer Dushan- state to stateUi
 
 	
@@ -36,7 +36,7 @@ public class FixBookUI {
 			case READY:
 				String bookString = inputScanner("Scan Book (<enter> completes): "); //Variable name should be meaningful and should not be abbreviations
 				if (bookString.length() == 0) {
-					controlBook.scanningComplete(); //updated by reviewer Dushan
+					controlBook.scanningComplete(); //updated by reviewer Dushan - version 4.0 final update to variables
 				}
 				else {
 					try {
@@ -50,7 +50,7 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String answer = inputScanner("Fix Book? (Y/N) : "); //Variable name should be meaningful
+				String answer = inputScanner("Fix Book? (Y/N) : "); //version 4.0 final update Variable name should be meaningful
 					//updated by reviewer Dushan
 				boolean fix = false;
 				if (answer.toUpperCase().equals("Y")) {
