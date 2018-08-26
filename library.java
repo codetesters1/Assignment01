@@ -113,7 +113,7 @@ public class Library implements Serializable { //changed class name's first lett
 
 
 	public List<book> books() {	//changed method name to meet guidelines	
-		return new ArrayList<book>(catalog.values()); 
+		return new ArrayList<book>(boohCatalog.values());  // moderated by moderator (Hijas) gave a meaningful word to meet the guidelines
 	}
 
 
