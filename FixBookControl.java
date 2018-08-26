@@ -45,7 +45,7 @@ public class FixBookControl {
 			userInterface.displayFixBook("\"Book has not been damaged"); //updated by reviewer(Dushan) - method name must change to displaFixBook in FixBookUI.java
 			return;
 		}
-		userInterface.displayFixBook(currentBook.toString()); //updated by reviewer(Dushan) - method name must change to displaFixBook in FixBookUI.java
+		userInterface.displayFixBook(currentBook.toString()); //version 5.0 updated by author (Waqas) variable name- updated by reviewer(Dushan) - method name must change to displayFixBook in FixBookUI.java
 		userInterface.setState(FixBookUI.UI_STATE.FIXING);
 		stateCon = CONTROL_STATE.FIXING; //updated by reviewer(Dushan) - state changed to stateCon		
 	}
@@ -68,7 +68,7 @@ public class FixBookControl {
 		if (!stateCon.equals(CONTROL_STATE.READY)) { //updated by reviewer(Dushan) - state to stateCon	
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
-		userInterface.setState(FixBookUI.UI_STATE.COMPLETED);		
+		userInterface.setState(FixBookUI.UI_STATE.COMPLETED);	//version 5.0 updated variable names	
 	}
 
 
