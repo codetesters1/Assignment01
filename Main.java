@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-// checked by Moderator
+// checked by Moderator Vidath
 
 public class Main {
 	
