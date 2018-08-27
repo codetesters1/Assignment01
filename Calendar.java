@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-// checked by Moderator
+// checked by Moderator - Vidath
 public class Calendar {
 	
 	private static Calendar self;
