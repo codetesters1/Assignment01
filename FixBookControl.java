@@ -1,5 +1,6 @@
 public class FixBookControl {
 // Author by Waqas
+//Checked by Reviewer - Vidath	
 // checked by Moderator
 //Checked by Documenter - Bhanuka
 	
