@@ -1,4 +1,5 @@
 public class ReturnBookControl {
+	//Checked by facilitator Vidath
 // checked by Documentor
 	private ReturnBookUI ui;
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
