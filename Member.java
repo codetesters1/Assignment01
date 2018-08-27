@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 // Checked By Moderator
+// Checked by Reviewer - Vidath
 @SuppressWarnings("serial")
 public class Member implements Serializable { //version 3.0 - class name: "Member" not "member" must start with capital letter
 
