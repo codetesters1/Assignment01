@@ -1,5 +1,5 @@
 public class FixBookControl {
-// checked by Moderator
+// checked by Moderator - Vidath
 	private FixBookUI userInterface; //Variable name should start by lowercase letter, use camelCase and should be meaningful
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
 	private CONTROL_STATE state;
