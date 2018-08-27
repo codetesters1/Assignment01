@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;//comment
 
+//Checked by documentor - Vidath
 public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
